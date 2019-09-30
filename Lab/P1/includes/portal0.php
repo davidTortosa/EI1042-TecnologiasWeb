@@ -20,4 +20,6 @@ include(dirname(__FILE__)."/../partials/menu.php");
 include(dirname(__FILE__).$central);
 var_dump($GLOBALS);
 include(dirname(__FILE__)."/../partials/footer.php");
+var_dump($GLOBALS["central"]);
+
 ?>
