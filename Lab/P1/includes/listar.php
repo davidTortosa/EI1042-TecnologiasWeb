@@ -16,6 +16,8 @@ function handler($pdo,$table)
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
+            echo "<td> <a href='https://thingsyoudontneed.000webhostapp.com/Lab/P1/includes/portal.php?action=delete&client_id=",$row['client_id'],"' class=btn btn-success'>Eliminar usuario</a> </td>"; 
+            echo "<td> <a href='https://thingsyoudontneed.000webhostapp.com/Lab/P1/includes/portal.php?action=update&client_id=",$row['client_id'],"' class=btn btn-success'>Actualizar usuario</a> </td>"; 
             print "</tr>";
         }
         print "</table>";

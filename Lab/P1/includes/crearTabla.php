@@ -15,6 +15,22 @@ try {
     
         // obtener el cliente id pasado por url
     if(isset($_GET['client_id'])){
+
+         if (is_array($a)) {
+            print '<table><thead>';
+            foreach ( array_keys($a[0])as $key) {
+            echo "<th>", $key,"</th>";
+        }
+        print "</thead>";
+        foreach ($a as $row) {
+            print "<tr>";
+            foreach ($row as $key => $val) {
+                echo "<td>", $val, "</td>";
+            }
+            print "</tr>";
+        }
+        print "</table>";
+    }
         borrar($pdo,$table,$_GET["client_id"]);
     }
     else {
