@@ -30,12 +30,21 @@ switch ($action) {
     case "crearTabla":
         $central = "/crearTabla.php";
         break;
-
+        
+    case "delete":
+        $central = "/crearTabla.php";
+        break;
+    case "update":
+        $central = "/../partials/registerForm.php";
+        break;
     case "registro":
          $central = "/../partials/registerForm.php";
         break;
     case "registrar":
         $central = "/registrar.php";
+        break;
+    case "update2":
+        $central = "/update.php";
         break;
     case "listar":
         $central = "/listar.php";
