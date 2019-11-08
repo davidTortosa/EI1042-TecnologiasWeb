@@ -56,17 +56,17 @@ if ( isset( $instance[ 'addr' ] ) ) {
 $addr = $instance[ 'addr' ];
 }
 else {
-$addr = __( 'Direccsion', 'HACIENDA' );
+$addr = __( 'Direccsion', 'HACIENDA SOMOS TODOS' );
 }
 // Formulario del backend
  ?>
 <p>
-<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Nombre no comercial chupigay:' ); ?></label> 
+<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Nombre de la tienda:' ); ?></label> 
 <input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $name ); ?>" />
 </p>
 
 <p>
-<label for="<?php echo $this->get_field_id( 'addr' ); ?>"><?php _e( 'La direccsion del amor:' ); ?></label> 
+<label for="<?php echo $this->get_field_id( 'addr' ); ?>"><?php _e( 'Dirección física:' ); ?></label> 
 <input class="widefat" id="<?php echo $this->get_field_id( 'addr' ); ?>" name="<?php echo $this->get_field_name( 'addr' ); ?>" type="text" value="<?php echo esc_attr( $addr ); ?>" />
 </p>
 <?php	
