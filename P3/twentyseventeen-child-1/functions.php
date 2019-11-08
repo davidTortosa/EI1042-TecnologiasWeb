@@ -38,7 +38,8 @@ $addr = apply_filters( 'widget_addr', $instance['addr']);
 // los argumentos del antes y después del widget vienen definidos por el tema
 echo $args['before_widget'];
 if ( ! empty( $name ) && ! empty( $addr ) )
-echo $args['before_title'] . $title . $args['after_title'];
+echo $args['before_title'] . $name . $args['after_title'];
+echo $addr;
 // Aquí es donde debemos introducir el código que queremos que se ejecute
 echo $args['after_widget'];
 }
