@@ -33,36 +33,48 @@ public function __construct() {
 	}	
 // Creamos la parte pública del widget
 public function widget( $args, $instance ) {
-$title = apply_filters( 'widget_title', $instance['title'] );
+$name = apply_filters( 'widget_name', $instance['name']);
+$addr = apply_filters( 'widget_addr', $instance['addr']);
 // los argumentos del antes y después del widget vienen definidos por el tema
 echo $args['before_widget'];
-if ( ! empty( $title ) )
+if ( ! empty( $name ) && ! empty( $addr ) )
 echo $args['before_title'] . $title . $args['after_title'];
 // Aquí es donde debemos introducir el código que queremos que se ejecute
-echo 'Hola Mundo' ;
 echo $args['after_widget'];
 }
 		
 // Backend  del widget
 public function form( $instance ) {
-if ( isset( $instance[ 'title' ] ) ) {
-$title = $instance[ 'title' ];
+if ( isset( $instance[ 'name' ] ) ) {
+$name = $instance[ 'name' ];
 }
 else {
-$title = __( 'Titulo', 'my_widget_domain' );
+$name = __( 'Titulo', 'shop' );
+}
+if ( isset( $instance[ 'addr' ] ) ) {
+$addr = $instance[ 'addr' ];
+}
+else {
+$addr = __( 'Direccsion', 'HACIENDA' );
 }
 // Formulario del backend
  ?>
 <p>
-<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Titulo:' ); ?></label> 
-<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Nombre no comercial chupigay:' ); ?></label> 
+<input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $name ); ?>" />
+</p>
+
+<p>
+<label for="<?php echo $this->get_field_id( 'addr' ); ?>"><?php _e( 'La direccsion del amor:' ); ?></label> 
+<input class="widefat" id="<?php echo $this->get_field_id( 'addr' ); ?>" name="<?php echo $this->get_field_name( 'addr' ); ?>" type="text" value="<?php echo esc_attr( $addr ); ?>" />
 </p>
 <?php	
 }
 // Actualizamos el widget reemplazando las viejas instancias con las nuevas
 public function update( $new_instance, $old_instance ) {
 $instance = array();
-$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+$instance['name'] = ( ! empty( $new_instance['name'] ) ) ? strip_tags( $new_instance['name'] ) : '';
+$instance['addr'] = ( ! empty( $new_instance['addr'] ) ) ? strip_tags( $new_instance['addr'] ) : '';
 return $instance;
 }
 } // La clase wp_widget termina aquí
