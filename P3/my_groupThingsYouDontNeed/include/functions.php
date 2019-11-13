@@ -33,7 +33,7 @@ function MP_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
     <h1>Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datos&proceso=registrar" method="POST">
+    <form class="fom_usuario" action="?action=my_datos&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
@@ -99,12 +99,17 @@ function MP_my_datos()
             
 
             $fotoURL="";
-            $IMAGENES_USUARIOS = '../fotos/';
+            $route = realpath(dirname(getcwd()));
+            $IMAGENES_USUARIOS = "/wp-content/fotillos/";
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-              $fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+              $fotoURL = $route.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
                  { echo "foto subida con éxito";
-            } }
+            } else {
+                "Ni de coña";
+            }
+        
+        }
    
 
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL );
