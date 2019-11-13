@@ -104,8 +104,6 @@ function MP_my_datos()
 
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
               $foto = $route."/wp-content/fotillos/".$_POST['userName']."_".$_FILES['foto']['name'];
-               echo "La fotillo: "+$foto;
-                echo "Route: "+$route;
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $foto))
                  { echo "foto subida con éxito";
             } else {
