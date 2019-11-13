@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 //Funcion instalación plugin. Crea tabla
-function MP_CrearT($tabla){
+function TYDN_CrearT($tabla){
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100),  email VARCHAR(100),  foto_file VARCHAR(25), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
@@ -29,11 +29,11 @@ function MP_CrearT($tabla){
 }
 
 
-function MP_Register_Form($MP_user , $user_email)
+function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
     <h1>Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datos&proceso=registrar" method="POST" enctype="multipart/form-data">
+    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
@@ -66,7 +66,7 @@ function MP_Register_Form($MP_user , $user_email)
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos&proceso=r 
 
-function MP_my_datos()
+function TYDN_my_datos()
 { 
     global $user_ID , $user_email,$table, $fotoURL; //FOTOURL
 
@@ -88,27 +88,24 @@ function MP_my_datos()
     switch ($_REQUEST['proceso']) {
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
-            MP_Register_Form($MP_user,$user_email);
+            TYDN_Register_Form($MP_user,$user_email);
             break;
         case "registrar":
             if (count($_REQUEST) < 3) {
                 print ("No has rellenado el formulario correctamente");
                 return;
             }
+            
             $query = "INSERT INTO $table (nombre, email,clienteMail, foto_file) VALUES (?,?,?,?)";    
 
 
             $foto="";
             $route = realpath(dirname(getcwd()));
-           
 
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
               $foto = $route."/wp-content/fotillos/".$_POST['userName']."_".$_FILES['foto']['name'];
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $foto))
-                 { echo "foto subida con éxito";
-            } else {
-                echo 'Ni de coña';
-            }
+                 { echo "foto subida con éxito";}
         
         }
    
@@ -119,7 +116,7 @@ function MP_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query";}
-            //else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));
+            else wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
             break;
         case "listar":
             //Listado amigos o de todos si se es administrador.
