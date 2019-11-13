@@ -68,7 +68,7 @@ function MP_Register_Form($MP_user , $user_email)
 
 function MP_my_datos()
 { 
-    global $user_ID , $user_email,$table, $fotoURL, $comaetilico; //FOTOURL
+    global $user_ID , $user_email,$table, $fotoURL; //FOTOURL
 
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
@@ -98,13 +98,13 @@ function MP_my_datos()
             $query = "INSERT INTO $table (nombre, email,clienteMail, foto_file) VALUES (?,?,?,?)";    
 
 
-            $fotoURL="";
+            $foto="";
             $route = realpath(dirname(getcwd()));
            
             $IMAGENES_USUARIOS = "/wp-content/fotillos/";
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-              $fotoURL = $route.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
-               if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
+              $foto = $route.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+               if (move_uploaded_file($_FILES['foto']['tmp_name'], $foto))
                  { echo "foto subida con éxito";
             } else {
                 $comaetilico='Ni de coña';
@@ -113,7 +113,7 @@ function MP_my_datos()
         }
    
 
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $fotoURL );
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $foto );
             //HASTA AQUI FOTO?
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP_pdo->prepare($query);
