@@ -96,19 +96,19 @@ function MP_my_datos()
                 return;
             }
             $query = "INSERT INTO $table (nombre, email,clienteMail, foto_file) VALUES (?,?,?,?)";    
-            echo "Se procede al insertado del miembro de ciudadanos ";
+            echo Console::log("Se procede al insertado del miembro de ciudadanos ");
 
             $fotoURL="";
             $route = realpath(dirname(getcwd()));
-            echo "Route: " + $route;
+            echo Console::log("Route: ", $route);
             $IMAGENES_USUARIOS = "/wp-content/fotillos/";
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
               $fotoURL = $route.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
-              echo "FotoURL: " + $fotoURL;
+              echo Console::log("FotoURL: ", $fotoURL);
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
                  { echo "foto subida con éxito";
             } else {
-                echo "Ni de coña";
+                echo Console::log('Ni de coña');
             }
         
         }
