@@ -145,7 +145,6 @@ function TYDN_my_datos()
                     print "</tr>";
                 }
                 print "</table></div>";
-                echo $comaetilico;
             }
             else{echo "No existen valores";}
             break;
