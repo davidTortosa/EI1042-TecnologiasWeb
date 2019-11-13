@@ -52,7 +52,7 @@ function MP_Register_Form($MP_user , $user_email)
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
-        <input type="file" name="fotoURL" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <input type="file" name="foto" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
         placeholder="Lucas" />
         <br/>
         <input type="submit" value="Enviar">
