@@ -96,7 +96,7 @@ function MP_my_datos()
                 return;
             }
             $query = "INSERT INTO $table (nombre, email,clienteMail, foto_file) VALUES (?,?,?,?)";    
-            echo Console::log("Se procede al insertado del miembro de ciudadanos ");
+
 
             $fotoURL="";
             $route = realpath(dirname(getcwd()));
@@ -108,7 +108,8 @@ function MP_my_datos()
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
                  { echo "foto subida con éxito";
             } else {
-                echo Console::log('Ni de coña');
+                $var = array('No','NONONONONO');
+                echo Console::log('Ni de coña',$var);
             }
         
         }
