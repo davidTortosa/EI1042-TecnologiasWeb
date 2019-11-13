@@ -50,6 +50,10 @@ function MP_Register_Form($MP_user , $user_email)
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
+        <br/>
+        <!-- CAMPO FOTO -->
+        <input type="file" name="fotoUrl" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <br/>
         <input type="submit" value="Enviar">
         <input type="reset" value="Deshacer">
     </form>
@@ -63,7 +67,7 @@ function MP_Register_Form($MP_user , $user_email)
 
 function MP_my_datos()
 { 
-    global $user_ID , $user_email,$table;
+    global $user_ID , $user_email,$table, $fotoUrl; //FOTOURL
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     wp_get_current_user();
@@ -89,8 +93,9 @@ function MP_my_datos()
                 print ("No has rellenado el formulario correctamente");
                 return;
             }
-            $query = "INSERT INTO $table (nombre, email,clienteMail) VALUES (?,?,?)";         
+            $query = "INSERT INTO $table (nombre, email,clienteMail, foto_file) VALUES (?,?,?,?)";         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'] );
+            //HASTA AQUI FOTO?
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
