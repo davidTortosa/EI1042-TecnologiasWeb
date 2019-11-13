@@ -68,7 +68,7 @@ function MP_Register_Form($MP_user , $user_email)
 
 function MP_my_datos()
 { 
-    global $user_ID , $user_email,$table, $fotoURL; //FOTOURL
+    global $user_ID , $user_email,$table, $fotoURL, $comaetilico; //FOTOURL
 
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
@@ -100,16 +100,14 @@ function MP_my_datos()
 
             $fotoURL="";
             $route = realpath(dirname(getcwd()));
-            echo Console::log("Route: ", $route);
+           
             $IMAGENES_USUARIOS = "/wp-content/fotillos/";
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
               $fotoURL = $route.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
-              echo Console::log("FotoURL: ", $fotoURL);
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
                  { echo "foto subida con éxito";
             } else {
-                $var = array('No','NONONONONO');
-                echo Console::log('Ni de coña',$var);
+                $comaetilico='Ni de coña';
             }
         
         }
@@ -150,6 +148,7 @@ function MP_my_datos()
                     print "</tr>";
                 }
                 print "</table></div>";
+                echo $comaetilico;
             }
             else{echo "No existen valores";}
             break;
@@ -172,36 +171,4 @@ function MP_my_datos()
     }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
 //add_action('admin_post_my_datos', 'my_datos'); //no autentificados
-
-class Console
-{
-    /**
-     * @param string $name Nombre único para poder ejecutar esto varias veces en el mismo documento
-     * @param mixed $var Una variable cadena, objeto, matriz o lo que sea
-     * @param string $type (debug|info|warn|error)
-     * @return html
-     */
-    public static function log($name, $var, $type='debug')
-    {
-        $name = preg_replace('/[^A-Z|0-9]/i', '_', $name);
-        $types = array('debug', 'info', 'warn', 'error');
-        if ( ! in_array($type, $types) ) $type = 'debug';
-        $s = '<script>' . PHP_EOL;
-            if ( is_object($var) or is_array($var) )
-            {
-                $object = json_encode($var);
-                $object = str_replace("'", "\'", $object);
-                $s .= "var object$name = '$object';" . PHP_EOL;
-                $s .= "var val$name = eval('('+object$name+')');" . PHP_EOL;
-                $s .= "console.$type(val$name);" . PHP_EOL;
-            }
-            else
-            {
-                $var = str_replace('"', '\\"', $var);
-                $s .= "console.$type($var);" . PHP_EOL;
-            }
-        $s .= '</script>' . PHP_EOL;
-        return $s;
-    }
-}
 ?>
