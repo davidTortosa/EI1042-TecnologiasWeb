@@ -65,7 +65,17 @@ function TYDN_Register_Form($MP_user , $user_email)
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos&proceso=r 
-
+function hook_css() {
+    ?>
+        <style>
+            .wp_head_example {
+                background-color : #f1f1f1;
+            }
+        </style>
+    <?php
+ }
+ add_action('wp_head', 'hook_css');
+ 
 function TYDN_my_datos()
 { 
     global $user_ID , $user_email,$table, $fotoURL; //FOTOURL
