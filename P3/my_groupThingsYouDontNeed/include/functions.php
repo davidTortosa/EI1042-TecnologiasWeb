@@ -144,7 +144,8 @@ function TYDN_my_datos()
                         
                         echo "<td>", $val, "</td>";
                         if($i==3 && $val!=null){
-                            echo  "<td><img src='/wp-content/fotillos/'.$val border='0' width='300' height='100'></td>";
+                            $src = '/wp-content/fotillos/'.$val
+                            echo  "<td><img src=$src border='0' width='300' height='100'></td>";
                         }
                         $i++;
                     }
