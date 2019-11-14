@@ -92,7 +92,7 @@ function hook_css() {
             }
             
             .colors-dark input[type="text"]{
-                background-color: none;
+                background-color: none !important;
                 color:black;
             }
         </style>
