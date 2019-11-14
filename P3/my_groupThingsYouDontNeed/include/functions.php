@@ -68,7 +68,7 @@ function TYDN_Register_Form($MP_user , $user_email)
 function hook_css() {
     ?>
         <style>
-            .wrap {
+            .fom_usuario {
                 background-color : #f1f1f1;
             }
         </style>
