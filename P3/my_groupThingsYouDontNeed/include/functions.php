@@ -78,28 +78,20 @@ function hook_css() {
                 
             }
             
-            .inputTYDN{
+            .inputTYDN input[type="text"]{
                 border: none !important;
-                background-color: none;
+                background-color: none !important;
                 border-bottom: 2px solid #FFCCFF !important;
                 color: black !importnat;
             }
             
             .inputTYDN[type=text]:focus {
-                background-color: RGBA(255, 204, 255,0.5) !importan;
+                background-color: RGBA(255, 204, 255,0.2) !importan;
                 color: black !importnat;
                 
             }
-            
-            .colors-dark input[type="text"]{
-                background: none !important;
-                color:black;
-            }
-            
-            .colors-dark input[type="text"]:focus{
 
-                color:black;
-            }
+           
         </style>
     <?php
  }
