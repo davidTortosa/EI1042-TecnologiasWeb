@@ -142,11 +142,13 @@ function TYDN_my_datos()
                     $i=0;
                     foreach ($row as $key => $val) {
                         
-                        echo "<td>", $val, "</td>";
                         if($i==3 && $val!=null){
-                            $src = '/wp-content/fotillos/'.$val
-                            echo  "<td><img src=$src border='0' width='300' height='100'></td>";
+                            $src = '/wp-content/fotillos/'.$val;
+                            echo  "<td><img src=$src border='0' width='100' height='100'></td>";
+                        }else{
+                        echo "<td>", $val, "</td>";
                         }
+                        
                         $i++;
                     }
                     print "</tr>";
