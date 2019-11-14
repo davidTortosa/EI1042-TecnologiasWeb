@@ -74,7 +74,6 @@ function hook_css() {
         </style>
     <?php
  }
- add_action('wp_head', 'hook_css');
  
 function TYDN_my_datos()
 { 

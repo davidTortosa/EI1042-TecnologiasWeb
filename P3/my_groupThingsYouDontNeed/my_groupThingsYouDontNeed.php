@@ -34,6 +34,7 @@ function TYDN_Ejecutar_crearT(){
     TYDN_CrearT("A_GrupoCliente000");
 }
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
+add_action('wp_head', 'hook_css');
 add_action('admin_post_my_datosTYDN', "TYDN_my_datos"); 
 
 ?>
