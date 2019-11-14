@@ -75,16 +75,20 @@ function hook_css() {
             }
             .labelTYDN{
                 color: #F08080 !important;
+                
             }
             
             .inputTYDN{
                 border: none !important;
-                border-bottom: 2px solid red !important;
+                background-color: none;
+                border-bottom: 2px solid #FFCCFF !important;
                 color: black !importnat;
             }
             
             .inputTYDN[type=text]:focus {
-                background-color: #FFCCFF;
+                background-color: RGBA(255, 204, 255, 0.2);
+                color: black !importnat;
+                
             }
         </style>
     <?php
