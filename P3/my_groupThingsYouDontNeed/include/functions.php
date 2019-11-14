@@ -69,7 +69,8 @@ function hook_css() {
     ?>
         <style>
             .fom_usuario {
-                background-color : rgb(255,102,255);
+                background-image : url(https://media1.tenor.com/images/9ee571803fdbea520d723280a6c2c573/tenor.gif);
+                background-repeat:no-repeat;
             }
         </style>
     <?php
