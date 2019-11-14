@@ -81,7 +81,7 @@ function hook_css() {
             .inputTYDN{
                 border: none !important;
                 border-bottom: 2px solid #FFCCFF !important;
-                color: black !important;
+                color: white !important;
                 background:none !important;
             }
             
