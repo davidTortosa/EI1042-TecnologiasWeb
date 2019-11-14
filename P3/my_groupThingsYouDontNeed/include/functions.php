@@ -139,11 +139,11 @@ function TYDN_my_datos()
                 print "</th>";
                 foreach ($rows as $row) {
                     print "<tr>";
-                    $i=0
+    
                     foreach ($row as $key => $val) {
                         
-                        echo "<td>", $val,$i, "</td>";
-                        $i++;
+                        echo "<td>", $val, "</td>";
+                      
                     }
                     print "</tr>";
                 }
