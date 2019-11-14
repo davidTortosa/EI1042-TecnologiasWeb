@@ -34,25 +34,25 @@ function TYDN_Register_Form($MP_user , $user_email)
     ?>
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
-        <label for="clienteMail">Tu correo</label>
+        <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
+        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $user_email?>"
         readonly />
         <br/>
-        <legend>Datos básicos</legend>
-        <label for="nombre">Nombre</label>
+        <legend class="labelTYDN">Datos básicos</legend>
+        <label class="labelTYDN" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
+        <input type="text" name="userName" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["userName"] ?>"
         placeholder="Miguel Cervantes" />
         <br/>
-        <label for="email">Email</label>
+        <label class="labelTYDN" for="email">Email</label>
         <br/>
-        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
+        <input type="text" name="email" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
-        <input type="file" name="foto" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <input type="file" name="foto" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["foto"] ?>"
         placeholder="Lucas" />
         <br/>
         <input type="submit" value="Enviar">
@@ -70,9 +70,20 @@ function hook_css() {
         <style>
             .fom_usuario {
                 background-image : url(https://media1.tenor.com/images/9ee571803fdbea520d723280a6c2c573/tenor.gif);
-                background-repeat:no-repeat;
                 width:100%;
                 height:100%;
+            }
+            .labelTYDN{
+                color: #F08080;
+            }
+            
+            .inputTYDN{
+                border: none;
+                border-bottom: 2px solid red;
+            }
+            
+            .inputTYDN[type=text]:focus {
+                background-color: #FFCCFF;
             }
         </style>
     <?php
