@@ -90,6 +90,11 @@ function hook_css() {
                 color: black !importnat;
                 
             }
+            
+            .colors-dark input[type="text"]{
+                background-color: none;
+                color:black;
+            }
         </style>
     <?php
  }
