@@ -42,7 +42,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <legend class="labelTYDN">Datos básicos</legend>
         <label class="labelTYDN" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["userName"] ?>"
+        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
         placeholder="Miguel Cervantes" />
         <br/>
         <label class="labelTYDN" for="email">Email</label>
@@ -74,12 +74,13 @@ function hook_css() {
                 height:100%;
             }
             .labelTYDN{
-                color: #F08080;
+                color: #F08080 !important;
             }
             
             .inputTYDN{
-                border: none;
-                border-bottom: 2px solid red;
+                border: none !important;
+                border-bottom: 2px solid red !important;
+                color: black !importnat;
             }
             
             .inputTYDN[type=text]:focus {
