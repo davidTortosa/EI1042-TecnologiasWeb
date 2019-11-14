@@ -95,6 +95,11 @@ function hook_css() {
                 background: none !important;
                 color:black;
             }
+            
+            .colors-dark input[type="text"]:focus{
+                background-color: RGBA(255, 204, 255,1) !important;
+                color:black;
+            }
         </style>
     <?php
  }
