@@ -47,12 +47,12 @@ function TYDN_Register_Form($MP_user , $user_email)
         <br/>
         <label class="labelTYDN" for="email">Email</label>
         <br/>
-        <input type="text" name="email" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["email"] ?>"
+        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $MP_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
-        <input type="file" name="foto" class="item_requerid" size="20" class="inputTYDN" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <input type="file" name="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
         placeholder="Lucas" />
         <br/>
         <input type="submit" value="Enviar">
