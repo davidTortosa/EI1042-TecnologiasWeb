@@ -140,12 +140,13 @@ function TYDN_my_datos()
                 foreach ($rows as $row) {
                     print "<tr>";
                     foreach ($row as $key => $val) {
+                    echo "QUE ES ESTO: " + $val;
                         echo "<td>", $val, "</td>";
                     }
                     print "</tr>";
                 }
                 print "</table></div>";
-            }
+            } 
             else{echo "No existen valores";}
             break;
         default:
