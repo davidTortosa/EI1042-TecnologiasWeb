@@ -69,7 +69,7 @@ function hook_css() {
     ?>
         <style>
             .fom_usuario {
-                background-color : #f1f1f1;
+                background-color : rgb(255,102,255);
             }
         </style>
     <?php
