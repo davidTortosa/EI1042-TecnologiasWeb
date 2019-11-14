@@ -80,14 +80,14 @@ function hook_css() {
             
             .inputTYDN{
                 border: none !important;
-                
                 border-bottom: 2px solid #FFCCFF !important;
-                color: black !importnat;
+                color: black !important;
+                background:none !important;
             }
             
             .inputTYDN:focus {
                 background-color: RGBA(255, 204, 255,0.2) !important;
-                color: black !importnat; 
+                color: black !important; 
             }
 
            
