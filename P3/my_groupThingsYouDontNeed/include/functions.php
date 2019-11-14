@@ -86,7 +86,7 @@ function hook_css() {
             }
             
             .inputTYDN:focus {
-                background-color: RGBA(255, 204, 255,0.2) !importan;
+                background-color: RGBA(255, 204, 255,0.2) !important;
                 color: black !importnat; 
             }
             .colors-dark input[type="text"]{
