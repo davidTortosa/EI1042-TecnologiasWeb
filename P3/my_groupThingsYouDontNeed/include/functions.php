@@ -82,6 +82,7 @@ function hook_css() {
                 color: #F08080 !important;
                 text-decoration: underline overline wavy white;
                 font-size: 20px;
+                padding-bottom:10px;
             }
             
             .inputTYDN{
