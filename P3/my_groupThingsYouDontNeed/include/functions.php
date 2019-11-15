@@ -56,8 +56,8 @@ function TYDN_Register_Form($MP_user , $user_email)
         placeholder="Lucas" />
         <br/>
         <br/>
-        <input type="submit" value="Enviar">
-        <input type="reset" value="Deshacer">
+        <input type="submit" class="paracetamol" value="Enviar">
+        <input type="reset" class="paracetamol" value="Deshacer">
     </form>
 <?php
 }
@@ -89,6 +89,12 @@ function hook_css() {
             .inputTYDN:focus {
                 background-color: RGBA(255, 204, 255,0.2) !important;
                 color: black !important; 
+            }
+            
+            .paracetamol{
+                border-radius: 12px;
+                background-color: #FFCCFF;
+                color: black;
             }
 
            
