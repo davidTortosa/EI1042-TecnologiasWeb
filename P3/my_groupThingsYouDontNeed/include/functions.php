@@ -92,9 +92,9 @@ function hook_css() {
             }
             
             .paracetamol{
-                border-radius: 12px;
-                background-color: #FFCCFF;
-                color: black;
+                border-radius: 12px !important;
+                background-color: #FFCCFF !important;
+
             }
 
            
