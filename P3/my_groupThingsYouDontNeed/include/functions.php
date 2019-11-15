@@ -98,9 +98,21 @@ function hook_css() {
 
             }
             .ibuprofeno{
-                border-radius: 12px !important;
+               /* border-radius: 12px !important;
                 background-color: #FFCCFF !important;
-                color:black !important;
+                color:black !important;*/
+                 position: relative !important;
+                display: inline-block !important;
+                font-weight: bold !important;
+                padding: 0.25em 0.5em !important;
+                text-decoration: none !important;
+                color: #00BCD4 !important;
+                background: #ECECEC !important;
+                transition: .4s !important;
+            }
+            .ibuprofeno:hover{
+                 background: #00bcd4 !important;
+                color: white !important;
             }
             .Kawaii{
                 background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
