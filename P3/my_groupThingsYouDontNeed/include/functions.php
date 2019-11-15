@@ -39,7 +39,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $user_email?>"
         readonly />
         <br/>
-        <legend class="labelTYDN">Datos básicos</legend>
+        <legend class="legendTYDN">Datos básicos</legend>
         <label class="labelTYDN" for="nombre">Nombre</label>
         <br/>
         <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
@@ -78,6 +78,11 @@ function hook_css() {
                 color: #F08080 !important;
                 
             }
+            .legendTYDN{
+                color: #F08080 !important;
+                text-decoration: underline overline wavy white;
+                font-size: 20px;
+            }
             
             .inputTYDN{
                 border: none !important;
@@ -87,8 +92,7 @@ function hook_css() {
             }
             
             .inputTYDN:focus {
-                background-color: RGBA(255, 204, 255,0.2) !important;
-                color: black !important; 
+                background-color: RGBA(255, 204, 255,0.5) !important;
             }
             
             .paracetamol{
@@ -98,22 +102,12 @@ function hook_css() {
 
             }
             .ibuprofeno{
-               /* border-radius: 12px !important;
+                border-radius: 12px !important;
                 background-color: #FFCCFF !important;
-                color:black !important;*/
-                 position: relative !important;
-                display: inline-block !important;
-                font-weight: bold !important;
-                padding: 0.25em 0.5em !important;
-                text-decoration: none !important;
-                color: #00BCD4 !important;
-                background: #ECECEC !important;
-                transition: .4s !important;
+                color:black !important;
+
             }
-            .ibuprofeno:hover{
-                 background: #00bcd4 !important;
-                color: white !important;
-            }
+
             .Kawaii{
                 background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
                 height: 200px !important;
