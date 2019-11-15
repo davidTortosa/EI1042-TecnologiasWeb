@@ -18,6 +18,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 
+?>
+ <script type="text/javascript" defer charset="utf-8">
+
+function mostrarFoto(file, imagen) {
+	  //carga la imagen de file en el elemento src imagen
+         var reader = new FileReader();
+         reader.addEventListener("load", function () {
+            imagen.src = reader.result;
+         });
+         reader.readAsDataURL(file);
+      }
+
+      function ready() {
+         var fichero = document.querySelector("#foto");
+         var imagen  = document.querySelector("#img_foto");
+	  //escuchamos evento selección nuevo fichero.
+         fichero.addEventListener("change", function (event) {
+            mostrarFoto(this.files[0], imagen);
+         });
+      }
+
+      ready();
+</script>
+
+
+<?php
 
 //Funcion instalación plugin. Crea tabla
 function TYDN_CrearT($tabla){
@@ -52,6 +78,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
+        <img id="img_foto" src="" width="100" height="100">
         <input type="file" name="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
         placeholder="Lucas" />
         <br/>
@@ -233,3 +260,4 @@ function TYDN_my_datos()
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
 //add_action('admin_post_my_datos', 'my_datos'); //no autentificados
 ?>
+
