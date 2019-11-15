@@ -16,8 +16,6 @@ if ( ! defined( 'WPINC' ) ) exit;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-header("Content-type: text/javascript; charset=UTF-8");
-
 //Funcion instalación plugin. Crea tabla
 function TYDN_CrearT($tabla){
     
@@ -31,8 +29,7 @@ function TYDN_CrearT($tabla){
 function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
-    <head>
-        <script type="text/javascript" defer charset="utf-8">
+        <script type="text/javascript"  charset="utf-8">
 
             function mostrarFoto(file, imagen) {
                 //carga la imagen de file en el elemento src imagen
@@ -55,7 +52,6 @@ function TYDN_Register_Form($MP_user , $user_email)
                 ready();
         </script>
 
-    </head>
     <h1 class="Kawaii">Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
