@@ -1,0 +1,89 @@
+ /*
+Theme Name:   Twenty Seventeen Child 1
+Theme URI:    http://example.com/twenty-seventeen-child-1/
+Description:  Twenty Seventeen Child 1 Theme
+Author:       John Doe
+Author URI:   http://example.com
+Template:     twentyseventeen
+Version:      1.0.2
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Text Domain:  twentyseventeen-child-1
+*/
+
+/* =Aquí empieza la personalización de tu tema
+-------------------------------------------------------------- */
+
+@import url("../twentyseventeen/style.css");
+.widget_rss span.rss-date {
+   color: green;
+ }
+ 
+.woocommerce-loop-product__title{
+    color:pink;
+    text-align: justify;
+} 
+
+.woocommerce-loop-product__title:hover{
+    color:#BB78B6;
+}
+
+/*
+.menu-item:hover{
+		background-image:url(https://a.wattpad.com/useravatar/3l_t1p0_3s3.256.112576.jpg);
+	background-size: 100px 50px;	
+}*/
+
+.sub-menu{
+		background-image:url(https://a.wattpad.com/useravatar/3l_t1p0_3s3.256.112576.jpg) !important;
+	background-size: 5em !important;	
+}
+a .__init__{
+	color:#403E40;
+}
+
+a .__init__:hover{
+	color:white;
+}
+#top-menu{
+ background-color:#F08080;
+}
+
+.navigation-top{
+		background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVLPLclrzFEJsPW2SrcXiV6XrSRoTj7Jrjf8NMe0Sm_Nc4Zgvp) !important;
+	background-size: 5em !important;
+}
+
+.menu-item a{
+	color:#403E40 !important;
+}
+.menu-item a:hover{
+	color:white !important;
+}
+
+
+.menu-item a::before, 
+.menu-item a::after{
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #fff;
+
+  will-change: width;
+  transition: width .05s ease-out;
+
+  position: absolute;
+  bottom: 0;
+} 
+
+.menu-item a::before{
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
+.menu-item a:hover::before, 
+.menu-item:hover::after{
+  width: 100%;
+  transition-duration: .15s;
+}
