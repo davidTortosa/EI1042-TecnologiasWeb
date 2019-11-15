@@ -29,28 +29,6 @@ function TYDN_CrearT($tabla){
 function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
-        <script type="text/javascript"  charset="utf-8">
-
-            function mostrarFoto(file, imagen) {
-                //carga la imagen de file en el elemento src imagen
-                    var reader = new FileReader();
-                    reader.addEventListener("load", function () {
-                        imagen.src = reader.result;
-                    });
-                    reader.readAsDataURL(file);
-                }
-
-                function ready() {
-                    var fichero = document.querySelector("#foto");
-                    var imagen  = document.querySelector("#img_foto");
-                //escuchamos evento selección nuevo fichero.
-                    fichero.addEventListener("change", function (event) {
-                        mostrarFoto(this.files[0], imagen);
-                    });
-                }
-
-                ready();
-        </script>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
@@ -80,6 +58,28 @@ function TYDN_Register_Form($MP_user , $user_email)
         <input type="submit" class="paracetamol" value="Enviar">
         <input type="reset" class="ibuprofeno" value="Deshacer">
     </form>
+    <script type="text/javascript"  defer charset="utf-8">
+
+function mostrarFoto(file, imagen) {
+    //carga la imagen de file en el elemento src imagen
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+            imagen.src = reader.result;
+        });
+        reader.readAsDataURL(file);
+    }
+
+    function ready() {
+        var fichero = document.querySelector("#foto");
+        var imagen  = document.querySelector("#img_foto");
+    //escuchamos evento selección nuevo fichero.
+        fichero.addEventListener("change", function (event) {
+            mostrarFoto(this.files[0], imagen);
+        });
+    }
+
+    ready();
+</script>
 <?php
 }
 
