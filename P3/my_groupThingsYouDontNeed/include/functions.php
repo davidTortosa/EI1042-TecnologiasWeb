@@ -102,7 +102,7 @@ function hook_css() {
                 background-color: #FFCCFF !important;
                 color:black !important;
             }
-            .kawaii{
+            .Kawaii{
                 background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
                 height: 200px !important;
                 text-align: center !important;
