@@ -16,7 +16,7 @@ if ( ! defined( 'WPINC' ) ) exit;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-
+header("Content-type: text/javascript; charset=UTF-8");
 
 //Funcion instalación plugin. Crea tabla
 function TYDN_CrearT($tabla){
