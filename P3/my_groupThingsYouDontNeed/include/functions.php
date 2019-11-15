@@ -57,7 +57,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <br/>
         <br/>
         <input type="submit" class="paracetamol" value="Enviar">
-        <input type="reset" class="paracetamol" value="Deshacer">
+        <input type="reset" class="ibuprofeno" value="Deshacer">
     </form>
 <?php
 }
@@ -94,7 +94,13 @@ function hook_css() {
             .paracetamol{
                 border-radius: 12px !important;
                 background-color: #FFCCFF !important;
+                padding: 0.5em 1.5em !important;
 
+            }
+            .ibuprofeno{
+                border-radius: 12px !important;
+                background-color: #FFCCFF !important;
+                color:black !important;
             }
 
            
