@@ -32,7 +32,7 @@ function TYDN_CrearT($tabla){
 function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
-    <h1>Gestión de Usuarios </h1>
+    <h1 class="Kawaii">Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
@@ -101,6 +101,13 @@ function hook_css() {
                 border-radius: 12px !important;
                 background-color: #FFCCFF !important;
                 color:black !important;
+            }
+            .kawaii{
+                background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
+                height: 200px !important;
+                text-align: center !important;
+                color: black !important;
+                padding-top:50px !important;
             }
 
            
