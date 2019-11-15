@@ -79,7 +79,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <br/>
         <!-- CAMPO FOTO -->
         <img id="img_foto" src="" width="100" height="100">
-        <input type="file" name="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
         placeholder="Lucas" />
         <br/>
         <br/>
