@@ -180,7 +180,7 @@ function TYDN_my_datos()
             $route = realpath(dirname(getcwd()));
 
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-              $foto = $route."/wp-content/fotillos/".$_POST['userName']."_".$_FILES['foto']['name'];
+              $foto = $route."/wp-content/fotillos/".$_FILES['foto']['name'];
                if (move_uploaded_file($_FILES['foto']['tmp_name'], $foto))
                  { echo "foto subida con éxito";}
         
