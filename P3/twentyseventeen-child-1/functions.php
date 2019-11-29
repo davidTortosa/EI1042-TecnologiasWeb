@@ -7,6 +7,7 @@
   return $the_New_Post;
   }
 
+  wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
 
 /*
 Plugin Name: my_Plugin_Widget1
@@ -88,7 +89,7 @@ add_shortcode('omelette', 'sc');
 
 //Juego cuadrados JavaScript 
 function squares_shortcode() {
-  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #F0ECF5;"></canvas>';
+  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #BBA6D4;"></canvas>';
 }
 add_shortcode('game', 'squares_shortcode');
 ?>
