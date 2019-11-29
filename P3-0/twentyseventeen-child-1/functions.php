@@ -81,15 +81,5 @@ $instance['addr'] = ( ! empty( $new_instance['addr'] ) ) ? strip_tags( $new_inst
 return $instance;
 }
 } // La clase wp_widget termina aquí
-function sc() {
-  return 'Omelette du formage';
-}
-add_shortcode('omelette', 'sc');
-
-//Juego cuadrados JavaScript 
-function squares_shortcode() {
-  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #F0ECF5;"></canvas>';
-}
-add_shortcode('game', 'squares_shortcode');
 
 ?>
