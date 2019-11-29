@@ -7,8 +7,6 @@
   return $the_New_Post;
   }
 
-  wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
-
 /*
 Plugin Name: my_Plugin_Widget1
 Description: Este plugin añade un widget que pone un título y una descripción.
@@ -89,7 +87,11 @@ add_shortcode('omelette', 'sc');
 
 //Juego cuadrados JavaScript 
 function squares_shortcode() {
+  wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
+  
   return '<canvas id="sketchpad" width="300" height="300" style="background-color: #BBA6D4;"></canvas>';
+  wp_enqueue_script('squareface'); 
+
 }
 add_shortcode('game', 'squares_shortcode');
 ?>
