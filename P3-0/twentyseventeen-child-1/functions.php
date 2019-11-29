@@ -81,6 +81,10 @@ $instance['addr'] = ( ! empty( $new_instance['addr'] ) ) ? strip_tags( $new_inst
 return $instance;
 }
 } // La clase wp_widget termina aquí
+function sc() {
+  return 'el puto shortcode del os cojones';
+}
+add_shortcode('puta', 'sc');
 
 //Juego cuadrados JavaScript 
 function squares_shortcode() {
