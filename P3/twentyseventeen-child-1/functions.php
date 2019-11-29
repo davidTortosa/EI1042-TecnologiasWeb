@@ -86,11 +86,11 @@ function sc() {
 add_shortcode('omelette', 'sc');
 
 //Juego cuadrados JavaScript 
+wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
 function squares_shortcode() {
-  wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
-  
-  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #BBA6D4;"></canvas>';
   wp_enqueue_script('squareface'); 
+  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #BBA6D4;"></canvas>';
+  
 
 }
 add_shortcode('game', 'squares_shortcode');
