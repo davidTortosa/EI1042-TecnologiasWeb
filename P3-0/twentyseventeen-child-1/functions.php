@@ -82,9 +82,9 @@ return $instance;
 }
 } // La clase wp_widget termina aquí
 function sc() {
-  return 'el puto shortcode del os cojones';
+  return 'Omelette du formage';
 }
-add_shortcode('puta', 'sc');
+add_shortcode('omelette', 'sc');
 
 //Juego cuadrados JavaScript 
 function squares_shortcode() {
