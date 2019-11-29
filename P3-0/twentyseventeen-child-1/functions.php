@@ -7,6 +7,8 @@
   return $the_New_Post;
   }
 
+  wp_register_script('game',get_stylesheet_directory_uri().'/js/square_face.js' );
+
 
 /*
 Plugin Name: my_Plugin_Widget1
@@ -79,4 +81,11 @@ $instance['addr'] = ( ! empty( $new_instance['addr'] ) ) ? strip_tags( $new_inst
 return $instance;
 }
 } // La clase wp_widget termina aquí
+
+//Juego cuadrados JavaScript 
+function squares_shortcode() {
+  return '<canvas id="sketchpad" width="300" height="300" style="background-color: #F0ECF5;"></canvas>';
+}
+add_shortcode('game', 'squares_shortcode');
+
 ?>
