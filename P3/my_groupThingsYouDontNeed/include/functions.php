@@ -239,7 +239,7 @@ function TYDN_my_datos()
             break;
 
             case "modificar":
-                TYDN_modify_user()
+                //TYDN_modify_user()
             break;
         default:
             print "Opción no correcta";
