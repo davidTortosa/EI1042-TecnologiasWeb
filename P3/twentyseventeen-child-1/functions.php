@@ -79,19 +79,19 @@ return $instance;
 }
 } // La clase wp_widget termina aquí
 
-//Shortcode de prueba
-function sc() {
-  return 'Omelette du formage';
+function add_lola_scripto(){
+    $deps = array();
+    wp_enqueue_script('squareface', get_stylesheet_directory_uri().'/js/square_face.js', $deps, true,true);
 }
-add_shortcode('omelette', 'sc');
 
 //Juego cuadrados JavaScript 
-wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
+//wp_register_script('squareface',get_stylesheet_directory_uri().'/js/square_face.js' );
 function squares_shortcode() {
-  wp_enqueue_script('squareface'); 
+  //wp_enqueue_script('squareface'); 
   return '<canvas id="sketchpad" width="300" height="300" style="background-color: #BBA6D4;"></canvas>';
   
 
 }
 add_shortcode('game', 'squares_shortcode');
+add_action('wp_enqueue_script', 'add_lola_scripto');
 ?>
