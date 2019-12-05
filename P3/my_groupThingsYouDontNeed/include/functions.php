@@ -243,9 +243,14 @@ function TYDN_my_datos()
                 foreach ($rows as $row) {
                     print "<tr>";
                     $i=0;
+                    $id='';
                     foreach ($row as $key => $val) {
                         echo "Key:: $key'<br>'";
                         echo "Value:: $val'<br>'";
+                        if($i==0 && $val!=null){
+                            $id=$val;
+                        }
+                        
                         if($i==3 && $val!=null){
                             $src = '/wp-content/fotillos/'.$val;
                             echo  "<td><img src=$src border='0' width='100' height='100'></td>";
@@ -254,9 +259,8 @@ function TYDN_my_datos()
                         }
                         
                         $i++;
-
-                        echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=", $key[person_id],"'></a></td>";
                     }
+                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=", $id,"'></a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
