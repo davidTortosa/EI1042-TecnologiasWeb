@@ -191,6 +191,7 @@ function TYDN_my_datos()
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
             TYDN_Register_Form($MP_user,$user_email);
             break;
+
         case "registrar":
             if (count($_REQUEST) < 3) {
                 print ("No has rellenado el formulario correctamente");
@@ -219,6 +220,7 @@ function TYDN_my_datos()
             if (1>$a) {echo "InCorrecto $query";}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
             break;
+
         case "listar":
             //Listado amigos o de todos si se es administrador.
             $a=array();
@@ -268,6 +270,12 @@ function TYDN_my_datos()
             case "modificar":
                 TYDN_modify_user();
             break;
+
+            case "modificar_usuario":
+                echo "ID:";
+                printf($_REQUEST['person_id']);
+                //$a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $_FILES['foto']['name']);
+            break;
         default:
             print "Opción no correcta";
         
@@ -288,37 +296,33 @@ function TYDN_my_datos()
 
 function TYDN_modify_user(){
     global $table;
-    echo "LA TABLA ----------->>>>>>>>>>>>>>>>>>>> $table";
+    
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
     $campo = 'person_id';
     $valor=0;
     if ((isset($_REQUEST['id']))){
-        echo "ID:";
-        printf($_REQUEST['id']);
+
         $valor = $_REQUEST['id'];
     }
     else{
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
     
-    $nombre, $email, $client_email, $img = '';
+    $nombre = $email = $client_email = $img = '';
 
-    $query = "SELECT     * FROM  $table      WHERE $campo =?";
+    $query = "SELECT * FROM $table WHERE $campo =?";
     $a=array($valor);
-
-    echo "A --> $a";
     
     $consult = $MP_pdo->prepare($query);
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
 
-
 ?>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
+    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $rows[0]['clienteMail']?>"
