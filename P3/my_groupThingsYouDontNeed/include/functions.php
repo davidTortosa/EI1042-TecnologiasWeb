@@ -341,7 +341,7 @@ function TYDN_modify_user(){
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
-        <img id="img_foto" src=<?php print$dir ?> width="100" height="100">
+        <img id="img_foto" src="" width="100" height="100">
         <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['foto_file'] ?>"
         placeholder="Lucas" />
         <br/>
@@ -349,6 +349,10 @@ function TYDN_modify_user(){
         <input type="submit" class="paracetamol" value="Actualizar">
         <input type="reset" class="ibuprofeno" value="Deshacer">
     </form>
+    <script type="text/javascript"  defer charset="utf-8">
+        var image = '<?php echo $dir; ?>';
+        document.getElementById('img_foto').src = image ;
+    </script>
     <?php
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
