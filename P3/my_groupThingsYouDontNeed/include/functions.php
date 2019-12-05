@@ -322,7 +322,7 @@ function TYDN_modify_user(){
 ?>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario" method="POST" enctype="multipart/form-data">
+    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario&person_id=$value" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $rows[0]['clienteMail']?>"
@@ -346,11 +346,10 @@ function TYDN_modify_user(){
         placeholder="Lucas" />
         <br/>
         <br/>
-        <input type="submit" class="paracetamol" value="Enviar">
+        <input type="submit" class="paracetamol" value="Actualizar">
         <input type="reset" class="ibuprofeno" value="Deshacer">
     </form>
     <?php
-
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
 //add_action('admin_post_my_datos', 'my_datos'); //no autentificados
