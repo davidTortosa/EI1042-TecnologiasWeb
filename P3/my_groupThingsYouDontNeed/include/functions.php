@@ -322,7 +322,7 @@ function TYDN_modify_user(){
 ?>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario&person_id=<?php echo $value;?>" method="POST" enctype="multipart/form-data">
+    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario&person_id=<?php echo $valor;?>" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $rows[0]['clienteMail']?>"
