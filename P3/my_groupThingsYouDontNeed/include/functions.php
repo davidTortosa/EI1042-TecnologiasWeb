@@ -245,8 +245,6 @@ function TYDN_my_datos()
                     $i=0;
                     $id='';
                     foreach ($row as $key => $val) {
-                        echo "Key:: $key'<br>'";
-                        echo "Value:: $val'<br>'";
                         if($i==0 && $val!=null){
                             $id=$val;
                         }
