@@ -290,7 +290,7 @@ function TYDN_modify_user(){
 
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
-    $campo = 0;
+    $campo = '';
     if ((isset($_REQUEST['id']))){
         echo "ID:";
         printf($_REQUEST['id']);
@@ -299,9 +299,9 @@ function TYDN_modify_user(){
     else{
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
-    $a=array();
-    $a=($campo);
-
+    $a=array($campo);
+    echo "A --> $a";
+    
     $query = "SELECT     * FROM  $table      WHERE $campo =?";
 
     $consult = $MP_pdo->prepare($query);
@@ -309,7 +309,7 @@ function TYDN_modify_user(){
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
     echo "LA TURRA -------------------------------";
-    var_dump($rows);
+    var_dump($rows[0]);
 
 ?>
 
