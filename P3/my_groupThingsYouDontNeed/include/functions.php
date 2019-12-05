@@ -291,7 +291,7 @@ function TYDN_modify_user(){
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
     $campo = 0;
-    if (!(isset($_REQUEST['id'])){
+    if (!(isset($_REQUEST['id']))){
         echo "ID:";
         printf($_REQUEST['id']);
         //$campo = $_REQUEST['id'];
