@@ -203,7 +203,8 @@ function TYDN_my_datos()
                 $query = "SELECT     * FROM  $table      WHERE $campo =?";
                 $a=array( $user_email);
  
-            } 
+            }
+
 
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
@@ -228,6 +229,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
+                    echo "<td>", "Modify", "</td>";
                     print "</tr>";
                 }
                 print "</table></div>";
@@ -250,6 +252,10 @@ function TYDN_my_datos()
     }
 
     get_footer();
+}
+
+function TYDN_modify_user(){
+
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
 //add_action('admin_post_my_datos', 'my_datos'); //no autentificados
