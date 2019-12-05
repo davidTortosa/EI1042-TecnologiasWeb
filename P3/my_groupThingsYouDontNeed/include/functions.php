@@ -272,8 +272,11 @@ function TYDN_my_datos()
             break;
 
             case "modificar_usuario":
-                echo "ID:";
-                printf($_REQUEST['person_id']);
+                //TODO : ACABAR
+                $id = $_REQUEST['person_id']
+                $query = "UPDATE $table SET nombre = ? ,nombre = ?, email = ? WHERE person_id =?";
+                $arr=array()
+
                 //$a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $_FILES['foto']['name']);
             break;
         default:
@@ -308,8 +311,6 @@ function TYDN_modify_user(){
     else{
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
-    
-    $nombre = $email = $client_email = $img = '';
 
     $query = "SELECT * FROM $table WHERE $campo =?";
     $a=array($valor);
