@@ -300,11 +300,12 @@ function TYDN_modify_user(){
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
     $a=array();
+    $a=($campo)
 
     $query = "SELECT     * FROM  $table      WHERE $campo =?";
 
     $consult = $MP_pdo->prepare($query);
-    $a=$consult->execute($query);
+    $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
     echo "LA TURRA ------------------------------- $rows"
