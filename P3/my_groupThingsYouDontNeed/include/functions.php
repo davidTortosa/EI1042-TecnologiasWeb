@@ -319,7 +319,9 @@ function TYDN_modify_user(){
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
-
+    if(file_exists($rows[0]['folo_file']){
+        echo "true";
+    }
 ?>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
