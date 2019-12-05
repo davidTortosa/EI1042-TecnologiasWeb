@@ -302,6 +302,7 @@ function TYDN_modify_user(){
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
     
+    $nombre, $email, $client_email, $img = '';
 
     $query = "SELECT     * FROM  $table      WHERE $campo =?";
     $a=array($valor);
@@ -312,8 +313,7 @@ function TYDN_modify_user(){
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
-    echo "LA TURRA -------------------------------";
-    var_dump($rows[0]);
+
 
 ?>
 
@@ -321,24 +321,24 @@ function TYDN_modify_user(){
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $user_email?>"
+        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $rows[0]['clienteMail']?>"
         readonly />
         <br/>
         <legend class="legendTYDN">Datos básicos</legend>
         <label class="labelTYDN" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
+        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['nombre'] ?>"
         placeholder="Miguel Cervantes" />
         <br/>
         <label class="labelTYDN" for="email">Email</label>
         <br/>
-        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $MP_user["email"] ?>"
+        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $rows[0]['email'] ?>"
         placeholder="kiko@ic.es" />
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
         <img id="img_foto" src="" width="100" height="100">
-        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['folo_file'] ?>"
         placeholder="Lucas" />
         <br/>
         <br/>
