@@ -260,7 +260,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td><a href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'></a></td>";
+                    echo "<td><a href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'> Editar la concha</a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
