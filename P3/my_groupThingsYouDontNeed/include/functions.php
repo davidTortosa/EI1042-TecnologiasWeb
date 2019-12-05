@@ -219,7 +219,8 @@ function TYDN_my_datos()
                     print "<tr>";
                     $i=0;
                     foreach ($row as $key => $val) {
-                        
+                        echo "Key:: $key";
+                        echo "Value:: $val";
                         if($i==3 && $val!=null){
                             $src = '/wp-content/fotillos/'.$val;
                             echo  "<td><img src=$src border='0' width='100' height='100'></td>";
@@ -229,12 +230,16 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td>", "Modify", "</td>";
+                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=4'></a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
             } 
             else{echo "No existen valores";}
+            break;
+
+            case "modificar":
+                TYDN_modify_user()
             break;
         default:
             print "Opción no correcta";
