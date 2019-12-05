@@ -25,6 +25,31 @@ function TYDN_CrearT($tabla){
     $consult->execute (array());
 }
 
+funcion js_foto(file,imagen){
+    ?>
+    <script type="text/javascript"  defer charset="utf-8">
+        function mostrarFoto(file, imagen) {
+            //carga la imagen de file en el elemento src imagen
+                var reader = new FileReader();
+                reader.addEventListener("load", function () {
+                    imagen.src = reader.result;
+                });
+                reader.readAsDataURL(file);
+            }
+        
+            function ready() {
+                var fichero = document.querySelector("#foto");
+                var imagen  = document.querySelector("#img_foto");
+            //escuchamos evento selección nuevo fichero.
+                fichero.addEventListener("change", function (event) {
+                    mostrarFoto(this.files[0], imagen);
+                });
+            }
+        ready();
+    </script>
+    <?php
+
+}
 
 function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
@@ -230,7 +255,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=4'></a></td>";
+                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=", $key[person_id],"'></a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
@@ -239,7 +264,7 @@ function TYDN_my_datos()
             break;
 
             case "modificar":
-                //TYDN_modify_user()
+                TYDN_modify_user();
             break;
         default:
             print "Opción no correcta";
@@ -259,7 +284,39 @@ function TYDN_my_datos()
     get_footer();
 }
 
-function TYDN_modify_user(){
+function TYDN_modify_user(){      
+
+?>
+
+    <h1 class="Kawaii">Gestión de Usuarios </h1>
+    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
+        <label for="clienteMail" class="labelTYDN">Tu correo</label>
+        <br/>
+        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $user_email?>"
+        readonly />
+        <br/>
+        <legend class="legendTYDN">Datos básicos</legend>
+        <label class="labelTYDN" for="nombre">Nombre</label>
+        <br/>
+        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
+        placeholder="Miguel Cervantes" />
+        <br/>
+        <label class="labelTYDN" for="email">Email</label>
+        <br/>
+        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $MP_user["email"] ?>"
+        placeholder="kiko@ic.es" />
+        <br/>
+        <br/>
+        <!-- CAMPO FOTO -->
+        <img id="img_foto" src="" width="100" height="100">
+        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
+        placeholder="Lucas" />
+        <br/>
+        <br/>
+        <input type="submit" class="paracetamol" value="Enviar">
+        <input type="reset" class="ibuprofeno" value="Deshacer">
+    </form>
+    <?php
 
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
