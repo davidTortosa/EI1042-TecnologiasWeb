@@ -287,7 +287,8 @@ function TYDN_my_datos()
 }
 
 function TYDN_modify_user(){
-
+    global $table;
+    echo "LA TABLA ----------->>>>>>>>>>>>>>>>>>>> $table";
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
     $campo = '';
