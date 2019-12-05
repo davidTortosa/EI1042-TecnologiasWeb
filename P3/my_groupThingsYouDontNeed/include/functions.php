@@ -219,8 +219,8 @@ function TYDN_my_datos()
                     print "<tr>";
                     $i=0;
                     foreach ($row as $key => $val) {
-                        echo "Key:: $key";
-                        echo "Value:: $val";
+                        echo "Key:: $key'<br>'";
+                        echo "Value:: $val'<br>'";
                         if($i==3 && $val!=null){
                             $src = '/wp-content/fotillos/'.$val;
                             echo  "<td><img src=$src border='0' width='100' height='100'></td>";
