@@ -308,7 +308,8 @@ function TYDN_modify_user(){
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
-    echo "LA TURRA ------------------------------- $rows"
+    echo "LA TURRA -------------------------------";
+    var_dump($rows);
 
 ?>
 
