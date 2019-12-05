@@ -295,7 +295,7 @@ function TYDN_my_datos()
 }
 
 function TYDN_modify_user(){
-    global $table;
+    global $table, $valor;
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
