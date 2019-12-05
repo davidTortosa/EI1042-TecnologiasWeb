@@ -260,7 +260,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'></a></td>";
+                    echo "<td><a class='labelTYDN' href='hola'></a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
