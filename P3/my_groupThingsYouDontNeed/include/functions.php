@@ -25,7 +25,7 @@ function TYDN_CrearT($tabla){
     $consult->execute (array());
 }
 
-funcion js_foto(file,imagen){
+function js_foto(file,imagen){
     ?>
     <script type="text/javascript"  defer charset="utf-8">
         function mostrarFoto(file, imagen) {
