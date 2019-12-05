@@ -291,20 +291,23 @@ function TYDN_modify_user(){
     echo "LA TABLA ----------->>>>>>>>>>>>>>>>>>>> $table";
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
-    $campo = '';
+    $campo = 'id';
+    $valor=0;
     if ((isset($_REQUEST['id']))){
         echo "ID:";
         printf($_REQUEST['id']);
-        //$campo = $_REQUEST['id'];
+        $valor = $_REQUEST['id'];
     }
     else{
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
-    $a=array($campo);
+    
+
+    $query = "SELECT     * FROM  $table      WHERE $campo =?";
+    $a=array($valor);
+
     echo "A --> $a";
     
-    $query = "SELECT     * FROM  $table      WHERE $campo =?";
-
     $consult = $MP_pdo->prepare($query);
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
