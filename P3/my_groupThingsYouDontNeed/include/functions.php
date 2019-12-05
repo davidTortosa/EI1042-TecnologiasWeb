@@ -292,7 +292,9 @@ function TYDN_modify_user(){
 
     $campo = 0;
     if (!(isset($_REQUEST['id'])){
-        $campo = $_REQUEST['id'];
+        echo "ID:";
+        printf($_REQUEST['id']);
+        //$campo = $_REQUEST['id'];
     }
     else{
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
