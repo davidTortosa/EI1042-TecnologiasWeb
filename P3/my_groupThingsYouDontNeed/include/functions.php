@@ -300,7 +300,7 @@ function TYDN_modify_user(){
         wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
     }
     $a=array();
-    $a=($campo)
+    $a=($campo);
 
     $query = "SELECT     * FROM  $table      WHERE $campo =?";
 
