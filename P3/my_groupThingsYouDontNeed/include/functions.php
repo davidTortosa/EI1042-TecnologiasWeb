@@ -273,9 +273,9 @@ function TYDN_my_datos()
 
             case "modificar_usuario":
                 //TODO : ACABAR
-                $id = $_REQUEST['person_id']
+                $id = $_REQUEST['person_id'];
                 $query = "UPDATE $table SET nombre = ? ,nombre = ?, email = ? WHERE person_id =?";
-                $arr=array()
+                $arr=array();
 
                 //$a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $_FILES['foto']['name']);
             break;
@@ -318,10 +318,7 @@ function TYDN_modify_user(){
     $consult = $MP_pdo->prepare($query);
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-
-    if(file_exists($rows[0]['folo_file']){
-        echo "true";
-    }
+    $dir='/wp-content/fotillos/'.$rows[0]['foto_file'];
 ?>
 
     <h1 class="Kawaii">Gestión de Usuarios </h1>
@@ -344,8 +341,8 @@ function TYDN_modify_user(){
         <br/>
         <br/>
         <!-- CAMPO FOTO -->
-        <img id="img_foto" src="" width="100" height="100">
-        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['folo_file'] ?>"
+        <img id="img_foto" src=<?php print$dir ?> width="100" height="100">
+        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['foto_file'] ?>"
         placeholder="Lucas" />
         <br/>
         <br/>
