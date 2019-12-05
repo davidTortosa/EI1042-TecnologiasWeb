@@ -172,7 +172,6 @@ function TYDN_my_datos()
 { 
     global $user_ID , $user_email,$table, $fotoURL; //FOTOURL
 
-    
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     wp_get_current_user();
     if ('' == $user_ID) {
@@ -258,7 +257,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td><a href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'> Editar la concha</a></td>";
+                    echo "<td><a href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'> Modificar </a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
@@ -287,7 +286,26 @@ function TYDN_my_datos()
     get_footer();
 }
 
-function TYDN_modify_user(){      
+function TYDN_modify_user(){
+
+    $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
+
+    $campo = 0;
+    if (!(isset($_REQUEST['id'])){
+        $campo = $_REQUEST['id'];
+    }
+    else{
+        wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
+    }
+    $a=array();
+
+    $query = "SELECT     * FROM  $table      WHERE $campo =?";
+
+    $consult = $MP_pdo->prepare($query);
+    $a=$consult->execute($query);
+    $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
+
+    echo "LA TURRA ------------------------------- $rows"
 
 ?>
 
