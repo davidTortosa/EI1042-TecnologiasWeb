@@ -291,7 +291,7 @@ function TYDN_modify_user(){
     echo "LA TABLA ----------->>>>>>>>>>>>>>>>>>>> $table";
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
-    $campo = 'id';
+    $campo = 'person_id';
     $valor=0;
     if ((isset($_REQUEST['id']))){
         echo "ID:";
