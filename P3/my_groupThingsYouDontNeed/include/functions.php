@@ -25,7 +25,7 @@ function TYDN_CrearT($tabla){
     $consult->execute (array());
 }
 
-function js_foto(file,imagen){
+function js_foto($file,$imagen){
     ?>
     <script type="text/javascript"  defer charset="utf-8">
         function mostrarFoto(file, imagen) {
@@ -254,8 +254,9 @@ function TYDN_my_datos()
                         }
                         
                         $i++;
+
+                        echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=", $key[person_id],"'></a></td>";
                     }
-                    echo "<td><a class='labelTYDN' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=", $key[person_id],"'></a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
