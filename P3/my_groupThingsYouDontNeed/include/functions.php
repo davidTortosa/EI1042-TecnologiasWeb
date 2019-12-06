@@ -72,7 +72,9 @@ function TYDN_Register_Form($MP_user , $user_email)
             });
 
             reader.readAsDataURL(file);
-        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); }
+        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
+            document.querySelector("#foto").value="";
+        }
             
     }
 
