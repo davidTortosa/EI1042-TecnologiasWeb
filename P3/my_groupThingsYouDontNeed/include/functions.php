@@ -93,6 +93,7 @@ function hook_css() {
                // background-image : url(https://media1.tenor.com/images/9ee571803fdbea520d723280a6c2c573/tenor.gif);
                 width:100%;
                 height:100%;
+                margin-top: 90px !important;
             }
             .labelTYDN{
                 color: #F08080 !important;
@@ -137,9 +138,7 @@ function hook_css() {
                 padding-top:50px !important;
             }
 
-            .{
-
-            }
+            
 
            
         </style>
@@ -335,7 +334,7 @@ function TYDN_modify_user(){
     $dir='/wp-content/fotillos/'.$rows[0]['foto_file'];
 ?>
 
-    <h1 class="Kawaii">Gestión de Usuarios </h1>
+    <h1 class="Kawaii">Modificar usuario </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario&person_id=<?php echo $valor;?>" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
         <br/>
