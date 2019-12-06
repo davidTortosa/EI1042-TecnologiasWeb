@@ -68,8 +68,8 @@ function TYDN_Register_Form($MP_user , $user_email)
 
             var extensions = ['JPG','JPEG'];
             var ex = file.name.split(".");
-            if(ex[1].toUpperCase() in extensions){
-                window.alert("De puta madre")
+            if(extensions.includes(ex[1].toUpperCase())){
+                window.alert("De puta madre");
             }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); }
 
             reader.readAsDataURL(file);
