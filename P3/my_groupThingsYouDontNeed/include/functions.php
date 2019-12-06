@@ -256,6 +256,13 @@ function TYDN_my_datos()
 
                     $query = "UPDATE $table SET nombre = ? , email = ?, foto_file=? WHERE person_id =?";
                     $arr=array($_REQUEST['userName'], $_REQUEST['email'], $_FILES['foto']['name'], $id);
+                    
+                    $foto="";
+                    $route = realpath(dirname(getcwd()));
+
+                    $foto = $route."/wp-content/fotillos/".$_FILES['foto']['name'];
+                    if (move_uploaded_file($_FILES['foto']['tmp_name'], $foto))
+                      { echo "foto subida con éxito";}
 
                 } else {
                     
