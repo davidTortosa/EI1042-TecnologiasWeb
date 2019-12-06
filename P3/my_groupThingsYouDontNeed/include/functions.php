@@ -25,32 +25,6 @@ function TYDN_CrearT($tabla){
     $consult->execute (array());
 }
 
-function js_foto($file,$imagen){
-    ?>
-    <script type="text/javascript"  defer charset="utf-8">
-        function mostrarFoto(file, imagen) {
-            //carga la imagen de file en el elemento src imagen
-                var reader = new FileReader();
-                reader.addEventListener("load", function () {
-                    imagen.src = reader.result;
-                });
-                reader.readAsDataURL(file);
-            }
-        
-            function ready() {
-                var fichero = document.querySelector("#foto");
-                var imagen  = document.querySelector("#img_foto");
-            //escuchamos evento selección nuevo fichero.
-                fichero.addEventListener("change", function (event) {
-                    mostrarFoto(this.files[0], imagen);
-                });
-            }
-        ready();
-    </script>
-    <?php
-
-}
-
 function TYDN_Register_Form($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
@@ -274,11 +248,19 @@ function TYDN_my_datos()
             case "modificar_usuario":
                 //TODO : ACABAR
                 $id = $_REQUEST['person_id'];
-                $query = "UPDATE $table SET nombre = ? ,nombre = ?, email = ? WHERE person_id =?";
-                $arr=array();
 
-                //$a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'], $_FILES['foto']['name']);
+                if($_FILES['foto']['name']){
+
+                        echo "Eeeeeeeeeeeeeexiste -------";
+                        printf($_FILES['foto']['name']);
+                }
+
+                $query = "UPDATE $table SET nombre = ? , email = ?, foto_file=?, clienteMail= ? WHERE person_id =?";
+
+                $arr=array($_REQUEST['userName'], $_REQUEST['email'], $_FILES['foto']['name'], $_REQUEST['clienteMail'],  $id);
+
             break;
+
         default:
             print "Opción no correcta";
         
