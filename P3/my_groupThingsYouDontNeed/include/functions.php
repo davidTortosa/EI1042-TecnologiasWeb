@@ -137,6 +137,10 @@ function hook_css() {
                 padding-top:50px !important;
             }
 
+            .{
+
+            }
+
            
         </style>
     <?php
@@ -157,6 +161,16 @@ function TYDN_my_datos()
     
     if (!(isset($_REQUEST['action'])) or !(isset($_REQUEST['proceso']))) { print("Opciones no correctas $user_email"); exit;}
 
+    ?> 
+    <head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+    </head>
+    <?php
     get_header();
     echo '<div class="wrap">';
 
@@ -233,7 +247,7 @@ function TYDN_my_datos()
                         
                         $i++;
                     }
-                    echo "<td><a href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'> Modificar </a></td>";
+                    echo "<td><a class='btn peach-gradient' href='admin-post.php?action=my_datosTYDN&proceso=modificar&id=$id'> Modificar </a></td>";
                     print "</tr>";
                 }
                 print "</table></div>";
