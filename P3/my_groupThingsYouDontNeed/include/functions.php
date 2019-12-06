@@ -60,19 +60,20 @@ function TYDN_Register_Form($MP_user , $user_email)
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
-        //carga la imagen de file en el elemento src imagen
+
+        var extensions = ['JPG','JPEG'];
+        var ex = file.name.split(".");
+        if(extensions.includes(ex[1].toUpperCase())){
+
+            //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
                 imagen.src = reader.result;
             });
 
-            var extensions = ['JPG','JPEG'];
-            var ex = file.name.split(".");
-            if(extensions.includes(ex[1].toUpperCase())){
-                window.alert("De puta madre");
-            }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); }
-
             reader.readAsDataURL(file);
+        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); }
+            
     }
 
     function ready() {
