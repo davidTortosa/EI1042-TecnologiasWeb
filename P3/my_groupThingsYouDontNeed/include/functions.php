@@ -249,15 +249,26 @@ function TYDN_my_datos()
                 //TODO : ACABAR
                 $id = $_REQUEST['person_id'];
 
+                $query="";
+                $arr=array();
+
                 if($_FILES['foto']['name']){
 
-                        echo "Eeeeeeeeeeeeeexiste -------";
-                        printf($_FILES['foto']['name']);
+                    $query = "UPDATE $table SET nombre = ? , email = ?, foto_file=? WHERE person_id =?";
+                    $arr=array($_REQUEST['userName'], $_REQUEST['email'], $_FILES['foto']['name'], $id);
+
+                } else {
+                    
+                    $query = "UPDATE $table SET nombre = ? , email = ? WHERE person_id =?";
+                    $arr=array($_REQUEST['userName'], $_REQUEST['email'], $id);
                 }
+                
+                $consult = $MP_pdo->prepare($query);
+                $arr=$consult->execute($arr);
+                $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 
-                $query = "UPDATE $table SET nombre = ? , email = ?, foto_file=?, clienteMail= ? WHERE person_id =?";
-
-                $arr=array($_REQUEST['userName'], $_REQUEST['email'], $_FILES['foto']['name'], $_REQUEST['clienteMail'],  $id);
+                wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
+                 
 
             break;
 
