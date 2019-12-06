@@ -67,7 +67,7 @@ function TYDN_Register_Form($MP_user , $user_email)
             });
 
             var ex = file.name.split(".");
-            console.log(ex);
+            window.alert(ex);
 
             reader.readAsDataURL(file);
     }
