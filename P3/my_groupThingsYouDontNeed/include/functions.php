@@ -59,13 +59,17 @@ function TYDN_Register_Form($MP_user , $user_email)
     </form>
     <script type="text/javascript"  defer charset="utf-8">
 
-function mostrarFoto(file, imagen) {
-    //carga la imagen de file en el elemento src imagen
-        var reader = new FileReader();
-        reader.addEventListener("load", function () {
-            imagen.src = reader.result;
-        });
-        reader.readAsDataURL(file);
+    function mostrarFoto(file, imagen) {
+        //carga la imagen de file en el elemento src imagen
+            var reader = new FileReader();
+            reader.addEventListener("load", function () {
+                imagen.src = reader.result;
+            });
+
+            var ex = file.name.split(".");
+            console.log(ex);
+
+            reader.readAsDataURL(file);
     }
 
     function ready() {
