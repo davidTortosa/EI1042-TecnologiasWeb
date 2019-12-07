@@ -391,6 +391,7 @@ function TYDN_modify_user(){
                 imagen.src = reader.result;
                 
                 var image = new Image();
+                image.src=reader.result;
                 image.onload = function () {
                   var height = this.height;
                   var width = this.width;
