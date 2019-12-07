@@ -400,6 +400,7 @@ function TYDN_modify_user(){
               var width = this.width;
               if (height > 100 || width > 100) {
                 alert("Height and Width must not exceed 100px.");
+                document.getElementById("foto").value = "";
                 return false;
               }
               imagen.src = reader.result;
