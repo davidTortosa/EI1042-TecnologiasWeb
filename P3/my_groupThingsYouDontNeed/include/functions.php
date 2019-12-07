@@ -380,7 +380,7 @@ function TYDN_modify_user(){
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
-        var old= file.value;
+        var old= file.name;
         console.log(file);
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
@@ -399,11 +399,10 @@ function TYDN_modify_user(){
                   var width = this.width;
                   if (height > 100 || width > 100) {
                     alert("La altura y la anchura no puede ser mayor que 100px.");
-                    file.value=old;
+                    file.name=old;
                     return false;
                   }
                   imagen.src = reader.result;
-                  console.log(file.value);
                   return true;
                 };
             });
