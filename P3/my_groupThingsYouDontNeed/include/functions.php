@@ -397,7 +397,7 @@ function TYDN_modify_user(){
                   var width = this.width;
                   if (height > 100 || width > 100) {
                     alert("La altura y la anchura no puede ser mayor que 100px.");
-                    fichero.value=old
+                    document.querySelector("#foto").value=old
                     console.log(fichero);
                     return false;
                   }
@@ -416,7 +416,7 @@ function TYDN_modify_user(){
     function ready() {
         var fichero = document.querySelector("#foto");
         var imagen  = document.querySelector("#img_foto");
-        var old= fdocument.querySelector("#foto").value;
+        var old= document.querySelector("#foto").value;
         console.log(fichero);
         console.log(old);
     //escuchamos evento selección nuevo fichero.
