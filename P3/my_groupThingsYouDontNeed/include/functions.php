@@ -376,6 +376,39 @@ function TYDN_modify_user(){
         var image = '<?php echo $dir; ?>';
         document.getElementById('img_foto').src = image ;
     </script>
+
+    <script type="text/javascript"  defer charset="utf-8">
+
+    function mostrarFoto(file, imagen) {
+
+        var extensions = ['JPG','JPEG'];
+        var ex = file.name.split(".");
+        if(extensions.includes(ex[1].toUpperCase())){
+
+            //carga la imagen de file en el elemento src imagen
+            var reader = new FileReader();
+            reader.addEventListener("load", function () {
+                imagen.src = reader.result;
+            });
+
+            reader.readAsDataURL(file);
+        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
+            document.querySelector("#foto").value="";
+        }
+            
+    }
+
+    function ready() {
+        var fichero = document.querySelector("#foto");
+        var imagen  = document.querySelector("#img_foto");
+    //escuchamos evento selección nuevo fichero.
+        fichero.addEventListener("change", function (event) {
+            mostrarFoto(this.files[0], imagen);
+        });
+    }
+
+    ready();
+</script>
     <?php
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
