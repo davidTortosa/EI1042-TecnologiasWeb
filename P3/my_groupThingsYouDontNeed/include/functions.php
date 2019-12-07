@@ -398,13 +398,12 @@ function TYDN_modify_user(){
             image.onload = function () {
               var height = this.height;
               var width = this.width;
-              if (height > 100 || width > 100) {
-                alert("Height and Width must not exceed 100px.");
+              if (height > 800 || width > 800) {
+                alert("Maximo 800X800 px.");
                 document.getElementById("foto").value = "";
                 return false;
               }
               imagen.src = reader.result;
-              alert("Uploaded image has valid Height and Width.");
               return true;
             };
                 
