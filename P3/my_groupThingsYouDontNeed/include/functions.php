@@ -384,30 +384,12 @@ function TYDN_modify_user(){
         var ex = file.name.split(".");
 
         if(extensions.includes(ex[1].toUpperCase())){
-            
-            
-            function readImageFile(file) {
-                var reader = new FileReader(); // CREATE AN NEW INSTANCE.
 
-                reader.onload = function (e) {
-                    var img = new Image();      
-                    img.src = e.target.result;
-
-                    img.onload = function () {
-                        console.log(img.width);
-                        console.log(this.height);
-            
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-            
-            
-            
-            
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
+                
+                alert(this.height);
                 imagen.src = reader.result;
             });
 
