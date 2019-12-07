@@ -380,9 +380,9 @@ function TYDN_modify_user(){
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
+
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
-
         if(extensions.includes(ex[1].toUpperCase())){
 
             //carga la imagen de file en el elemento src imagen
@@ -390,21 +390,32 @@ function TYDN_modify_user(){
             reader.addEventListener("load", function () {
                 
                 
-                var image = new Image();
-                image.src=reader.result;
-                image.onload = function () {
-                  var height = this.height;
-                  var width = this.width;
-                  if (height > 100 || width > 100) {
-                    alert("La altura y la anchura no puede ser mayor que 100px.");
-                    return false;
-                  }
-                  imagen.src=reader.result;
-                  return true;
-                };
-                reader.readAsDataURL(file);
+                
+                
+                image.src = reader.result;
+          
+            //Validate the File Height and Width.
+            image.onload = function () {
+              var height = this.height;
+              var width = this.width;
+              if (height > 100 || width > 100) {
+                alert("Height and Width must not exceed 100px.");
+                return false;
+              }
+              imagen.src = reader.result;
+              alert("Uploaded image has valid Height and Width.");
+              return true;
+            };
+                
+                
+                
+                
+                
+                
+                
             });
-            
+
+            reader.readAsDataURL(file);
         }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
             document.querySelector("#foto").value="";
         }
@@ -414,9 +425,6 @@ function TYDN_modify_user(){
     function ready() {
         var fichero = document.querySelector("#foto");
         var imagen  = document.querySelector("#img_foto");
-        var old= document.querySelector("#foto").value;
-        console.log(fichero);
-        console.log(old);
     //escuchamos evento selección nuevo fichero.
         fichero.addEventListener("change", function (event) {
             mostrarFoto(this.files[0], imagen);
