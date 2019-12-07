@@ -388,8 +388,18 @@ function TYDN_modify_user(){
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
-                console.log(reader);
                 imagen.src = reader.result;
+                
+                image.onload = function () {
+                  var height = this.height;
+                  var width = this.width;
+                  if (height > 100 || width > 100) {
+                    alert("Height and Width must not exceed 100px.");
+                    return false;
+                  }
+                  alert("Uploaded image has valid Height and Width.");
+                  return true;
+                };
             });
 
             reader.readAsDataURL(file);
