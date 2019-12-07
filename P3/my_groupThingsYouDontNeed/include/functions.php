@@ -416,9 +416,11 @@ function TYDN_modify_user(){
     function ready() {
         var fichero = document.querySelector("#foto");
         var imagen  = document.querySelector("#img_foto");
+        var old= fichero.value;
+        console.log(old);
     //escuchamos evento selección nuevo fichero.
         fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen, fichero.value);
+            mostrarFoto(this.files[0], imagen, old );
         });
     }
 
