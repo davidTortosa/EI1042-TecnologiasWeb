@@ -397,7 +397,10 @@ function TYDN_modify_user(){
                         console.log(this.width);
                         console.log(this.height);
             
-            
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
             
             
             
