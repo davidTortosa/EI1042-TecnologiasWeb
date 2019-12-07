@@ -416,7 +416,7 @@ function TYDN_modify_user(){
     function ready() {
         var fichero = document.querySelector("#foto");
         var imagen  = document.querySelector("#img_foto");
-        var old= fichero.value;
+        var old= fdocument.querySelector("#foto").value;
         console.log(fichero);
         console.log(old);
     //escuchamos evento selección nuevo fichero.
