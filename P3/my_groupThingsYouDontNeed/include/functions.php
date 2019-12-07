@@ -391,7 +391,7 @@ function TYDN_modify_user(){
                 
                 
                 
-                
+                var image = new Image();
                 image.src = reader.result;
           
             //Validate the File Height and Width.
