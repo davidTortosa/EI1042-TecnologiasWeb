@@ -388,7 +388,7 @@ function TYDN_modify_user(){
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
-                imagen.src = reader.result;
+                
                 
                 var image = new Image();
                 image.src=reader.result;
@@ -396,10 +396,10 @@ function TYDN_modify_user(){
                   var height = this.height;
                   var width = this.width;
                   if (height > 100 || width > 100) {
-                    alert("Height and Width must not exceed 100px.");
+                    alert("La altura y la anchura no puede ser mayor que 100px.");
                     return false;
                   }
-                  alert("Uploaded image has valid Height and Width.");
+                  imagen.src = reader.result;
                   return true;
                 };
             });
