@@ -382,6 +382,7 @@ function TYDN_modify_user(){
     function mostrarFoto(file, imagen) {
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
+        console.log(imagen);
         if(extensions.includes(ex[1].toUpperCase())){
             
 
@@ -391,7 +392,6 @@ function TYDN_modify_user(){
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
-                console.log(imagen);
                 imagen.src = reader.result;
             });
 
