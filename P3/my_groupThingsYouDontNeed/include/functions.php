@@ -384,14 +384,14 @@ function TYDN_modify_user(){
         var ex = file.name.split(".");
         if(extensions.includes(ex[1].toUpperCase())){
             
-            img = new Image();
-            img.onload = function () {
-                alert(this.width + " " + this.height);
-            };
+
+                
+
 
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
             reader.addEventListener("load", function () {
+                console.log(imagen);
                 imagen.src = reader.result;
             });
 
