@@ -399,7 +399,7 @@ function TYDN_modify_user(){
                   var width = this.width;
                   if (height > 100 || width > 100) {
                     alert("La altura y la anchura no puede ser mayor que 100px.");
-                    file.name=old;
+                    file.value=old;
                     return false;
                   }
                   imagen.src = reader.result;
