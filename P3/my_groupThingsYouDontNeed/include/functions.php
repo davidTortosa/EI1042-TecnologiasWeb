@@ -400,6 +400,7 @@ function TYDN_modify_user(){
 
                     return false;
                   }
+                  console.log('joderrrrrr');
                   reader.readAsDataURL(file);
                   return true;
                 };
