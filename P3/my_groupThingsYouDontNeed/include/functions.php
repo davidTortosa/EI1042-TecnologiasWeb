@@ -379,7 +379,7 @@ function TYDN_modify_user(){
 
     <script type="text/javascript"  defer charset="utf-8">
 
-    function mostrarFoto(file, imagen) {
+    function mostrarFoto(file, imagen, old) {
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
 
@@ -397,7 +397,8 @@ function TYDN_modify_user(){
                   var width = this.width;
                   if (height > 100 || width > 100) {
                     alert("La altura y la anchura no puede ser mayor que 100px.");
-
+                    fichero.value=old
+                    console.log(fichero);
                     return false;
                   }
                   console.log('joderrrrrr');
@@ -415,10 +416,9 @@ function TYDN_modify_user(){
     function ready() {
         var fichero = document.querySelector("#foto");
         var imagen  = document.querySelector("#img_foto");
-        console.log(fichero);
     //escuchamos evento selección nuevo fichero.
         fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen);
+            mostrarFoto(this.files[0], imagen, fichero.value);
         });
     }
 
