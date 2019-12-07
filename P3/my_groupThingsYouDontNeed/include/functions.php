@@ -380,7 +380,7 @@ function TYDN_modify_user(){
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
-        var old= file.name;
+        var old= file.value;
         console.log(old);
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
@@ -403,7 +403,7 @@ function TYDN_modify_user(){
                     return false;
                   }
                   imagen.src = reader.result;
-                  console.log(file.name);
+                  console.log(file.value);
                   return true;
                 };
             });
