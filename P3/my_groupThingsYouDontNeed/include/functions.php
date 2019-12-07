@@ -381,7 +381,7 @@ function TYDN_modify_user(){
 
     function mostrarFoto(file, imagen) {
         var old= file.value;
-        console.log(old);
+        console.log(file);
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
 
