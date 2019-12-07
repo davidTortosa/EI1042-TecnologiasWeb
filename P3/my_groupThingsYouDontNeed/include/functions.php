@@ -389,7 +389,7 @@ function TYDN_modify_user(){
             var reader = new FileReader();
             reader.addEventListener("load", function () {
                 
-                alert(this.height);
+                alert(this);
                 imagen.src = reader.result;
             });
 
