@@ -394,7 +394,7 @@ function TYDN_modify_user(){
                     img.src = e.target.result;
 
                     img.onload = function () {
-                        console.log(this.width);
+                        console.log(img.width);
                         console.log(this.height);
             
                     }
