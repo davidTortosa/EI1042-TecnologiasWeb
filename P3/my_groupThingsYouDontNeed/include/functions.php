@@ -379,7 +379,7 @@ function TYDN_modify_user(){
 
     <script type="text/javascript"  defer charset="utf-8">
 
-    function mostrarFoto(file, imagen, old) {
+    function mostrarFoto(file, imagen) {
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
 
@@ -397,14 +397,12 @@ function TYDN_modify_user(){
                   var width = this.width;
                   if (height > 100 || width > 100) {
                     alert("La altura y la anchura no puede ser mayor que 100px.");
-                    document.querySelector("#foto").value=old
-                    console.log(fichero);
                     return false;
                   }
-                  console.log('joderrrrrr');
-                  reader.readAsDataURL(file);
+                  imagen.src=reader.result;
                   return true;
                 };
+                reader.readAsDataURL(file);
             });
             
         }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
@@ -421,7 +419,7 @@ function TYDN_modify_user(){
         console.log(old);
     //escuchamos evento selección nuevo fichero.
         fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen, old );
+            mostrarFoto(this.files[0], imagen);
         });
     }
 
