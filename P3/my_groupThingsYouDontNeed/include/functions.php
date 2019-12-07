@@ -380,7 +380,8 @@ function TYDN_modify_user(){
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
-
+        console.log(file.width);
+        console.log(file.height);
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
         if(extensions.includes(ex[1].toUpperCase())){
