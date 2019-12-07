@@ -380,10 +380,14 @@ function TYDN_modify_user(){
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
-        console.log(file);
         var extensions = ['JPG','JPEG'];
         var ex = file.name.split(".");
         if(extensions.includes(ex[1].toUpperCase())){
+            
+            img = new Image();
+            img.onload = function () {
+                alert(this.width + " " + this.height);
+            };
 
             //carga la imagen de file en el elemento src imagen
             var reader = new FileReader();
