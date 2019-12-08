@@ -93,5 +93,5 @@ function squares_shortcode() {
 
 }
 add_shortcode('game', 'squares_shortcode');
-add_action('wp_enqueue_script', 'add_scripto');
+add_action('wp_enqueue_scripts', 'add_scripto');
 ?>
