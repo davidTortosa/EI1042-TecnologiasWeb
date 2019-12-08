@@ -87,3 +87,26 @@ a .__init__:hover{
   width: 100%;
   transition-duration: .15s;
 }
+
+.label-game{
+  display: block;
+	position: absolute;
+	padding: 10px 25px;
+	width: 33%;
+	min-width: 140px;
+	text-align: center;
+  background: rgba(255,255,255,1);
+  color: rgba(20,40,47,0.9);
+  font-size: 16px;
+}
+
+.label-game:after {
+	position: absolute;
+	background: transparent url(../proximo.png) no-repeat center center;
+	width: 32px;
+	height: 33px;
+	top: 50%;
+	left: 100%;
+	margin: -16px 0 0 -16px;
+	content: '';
+}
