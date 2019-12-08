@@ -79,7 +79,7 @@ return $instance;
 }
 } // La clase wp_widget termina aquí
 
-function add_lola_scripto(){
+function add_scripto(){
     $deps = array();
     wp_enqueue_script('squareface', get_stylesheet_directory_uri().'/js/square_face.js', $deps, true,true);
 }
@@ -93,5 +93,5 @@ function squares_shortcode() {
 
 }
 add_shortcode('game', 'squares_shortcode');
-add_action('wp_enqueue_script', 'add_lola_scripto');
+add_action('wp_enqueue_script', 'add_scripto');
 ?>
