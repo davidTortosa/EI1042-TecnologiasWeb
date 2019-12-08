@@ -376,6 +376,63 @@ function TYDN_modify_user(){
         var image = '<?php echo $dir; ?>';
         document.getElementById('img_foto').src = image ;
     </script>
+
+    <script type="text/javascript"  defer charset="utf-8">
+
+    function mostrarFoto(file, imagen) {
+
+        var extensions = ['JPG','JPEG'];
+        var ex = file.name.split(".");
+        if(extensions.includes(ex[1].toUpperCase())){
+
+            //carga la imagen de file en el elemento src imagen
+            var reader = new FileReader();
+            reader.addEventListener("load", function () {
+                
+                
+                
+                var image = new Image();
+                image.src = reader.result;
+          
+            //Validate the File Height and Width.
+            image.onload = function () {
+              var height = this.height;
+              var width = this.width;
+              if (height > 800 || width > 800) {
+                alert("Maximo 800X800 px.");
+                document.getElementById("foto").value = "";
+                return false;
+              }
+              imagen.src = reader.result;
+              return true;
+            };
+                
+                
+                
+                
+                
+                
+                
+            });
+
+            reader.readAsDataURL(file);
+        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
+            document.querySelector("#foto").value="";
+        }
+            
+    }
+
+    function ready() {
+        var fichero = document.querySelector("#foto");
+        var imagen  = document.querySelector("#img_foto");
+    //escuchamos evento selección nuevo fichero.
+        fichero.addEventListener("change", function (event) {
+            mostrarFoto(this.files[0], imagen);
+        });
+    }
+
+    ready();
+</script>
     <?php
 }
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
