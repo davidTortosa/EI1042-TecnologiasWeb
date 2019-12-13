@@ -234,9 +234,9 @@ function TYDN_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($rows);
-            /*
-            if (is_array($rows)) {/* Creamos un listado como una tabla HTML
+            $json_var = json_encode($rows);
+            var_dump($json_var);
+            if (is_array($rows)) {/* Creamos un listado como una tabla HTML */
                 print '<div><table><th>';
                 foreach ( array_keys($rows[0])as $key) {
                     echo "<td>", $key,"</td>";
@@ -265,7 +265,7 @@ function TYDN_my_datos()
                 }
                 print "</table></div>";
             } 
-            else{echo "No existen valores";} */
+            else{echo "No existen valores";} 
             break;
 
             case "modificar":
