@@ -49,6 +49,9 @@ switch ($action) {
     case "listar":
         $central = "/listar.php";
         break;
+    case "listarJSON":
+        $central = "/listarJSON.php";
+        break;
     default:
         $data["error"] = "Accion No permitida";
         $central = "/../partials/centralForm.php";
