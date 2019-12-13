@@ -12,7 +12,7 @@
  * */
 
 
- header('Content-type: application/json');
+//header('Content-type: application/json');
 //Estas 2 instrucciones me aseguran que el usuario accede a través del WP. Y no directamente
 if ( ! defined( 'WPINC' ) ) exit;
 
