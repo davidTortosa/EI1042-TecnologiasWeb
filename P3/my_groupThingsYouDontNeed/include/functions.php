@@ -4,13 +4,15 @@
  * *
  * * Descripción extensa: Iremos añadiendo cosas complejas en PHP.
  * *
- * * @author  Lola <dllido@uji.es> 
- * * @copyright 2018 Lola
+ * * @author aterina Alarcón Marín, David Tortosa Escudero <al364403@uji.es>  <al361904@uji.es>
+ * *
+ * * @copyright 2019 kitpru
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
- * * @version 2
+ * * @version 3
  * */
 
 
+ header('Content-type: application/json');
 //Estas 2 instrucciones me aseguran que el usuario accede a través del WP. Y no directamente
 if ( ! defined( 'WPINC' ) ) exit;
 
@@ -232,6 +234,7 @@ function TYDN_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($rows);
             if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
                 print '<div><table><th>';
                 foreach ( array_keys($rows[0])as $key) {
