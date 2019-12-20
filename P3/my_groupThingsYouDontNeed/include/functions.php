@@ -102,7 +102,6 @@ function hook_css() {
     ?>
         <style>
             .fom_usuario {
-               // background-image : url(https://media1.tenor.com/images/9ee571803fdbea520d723280a6c2c573/tenor.gif);
                 width:100%;
                 height:100%;
                 margin-top: 90px !important;
