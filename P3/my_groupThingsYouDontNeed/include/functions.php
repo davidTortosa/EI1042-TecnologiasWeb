@@ -10,8 +10,11 @@
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 3
  * */
-
-
+>?
+    <head>
+    <script type="text/javascript" src="/wp-content/plugins/my_groupThingsYouDontNeed/include/registro.js" charset="utf-8" async="" defer=""></script>
+    </head>
+<?php
 //header('Content-type: application/json');
 //Estas 2 instrucciones me aseguran que el usuario accede a través del WP. Y no directamente
 if ( ! defined( 'WPINC' ) ) exit;
@@ -60,46 +63,7 @@ function TYDN_Register_Form($MP_user , $user_email)
         <input type="reset" class="ibuprofeno" value="Deshacer">
     </form>
 
-    <script type="text/javascript" charset="utf-8" async="" defer="">
-
-        async function enviaForm(evento) {
-           try {
-              evento.preventDefault();
-              var imagen  = document.querySelector("#img_foto");
-              let url = evento.target.getAttribute("action")
-              let data = new FormData(evento.target);
-              let init = {
-                 url: url,
-                 method: 'post',
-                 body: data
-              };
-              let request0 = new Request(url, init);
-
-              const response = await fetch(request0);
-
-              if (!response.ok) {
-                 throw Error(response.statusText);
-              }   
-              const result = await response.text();
-              console.log('Tutto benne:', result);
-        evento.target.reset ();
-                    imagen.src = "";
-
-
-
-        window.alert("Usuario añadido con éxito. ¿Seguir añadiendo amigos?");
-           } catch (error) {
-              console.log(error);
-           }
-
-        }
-        if (document.forms.length > 0) {
-           document.forms[0].addEventListener("submit", function (event) {
-              enviaForm(event);
-
-           })
-        }
-    </script>
+    
     <script type="text/javascript"  defer charset="utf-8">
 
     function mostrarFoto(file, imagen) {
