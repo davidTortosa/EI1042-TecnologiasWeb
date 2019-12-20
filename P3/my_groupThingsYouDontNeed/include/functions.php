@@ -10,7 +10,7 @@
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 3
  * */
->?
+?>
     <head>
     <script type="text/javascript" src="/wp-content/plugins/my_groupThingsYouDontNeed/include/registro.js" charset="utf-8" async="" defer=""></script>
     </head>
