@@ -182,7 +182,10 @@ function TYDN_my_datos()
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     </head>
     <?php
-    get_header();
+    if (!(isset($_REQUEST['partial']))) {
+       get_header();
+
+    //get_header();
     echo '<div class="wrap">';
 
     switch ($_REQUEST['proceso']) {
@@ -319,8 +322,12 @@ function TYDN_my_datos()
         // for the front-end
         remove_action('wp_footer', 'wp_admin_bar_render', 1000);
     }
+    if (!(isset($_REQUEST['partial']))) {
+       get_footer();
+       echo "</div>";
+   }
 
-    get_footer();
+    //get_footer();
 }
 
 function TYDN_modify_user(){
