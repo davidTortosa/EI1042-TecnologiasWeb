@@ -469,8 +469,8 @@ function TYDN_modify_user(){
             image.onload = function () {
               var height = this.height;
               var width = this.width;
-              if (height > 800 || width > 800) {
-                alert("Maximo 800X800 px.");
+              if (height > 1500 || width > 1500) {
+                alert("Maximo 1500x1500 px.");
                 document.getElementById("foto").value = "";
                 return false;
               }
