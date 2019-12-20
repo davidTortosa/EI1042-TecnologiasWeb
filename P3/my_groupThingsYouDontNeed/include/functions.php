@@ -184,7 +184,7 @@ function TYDN_my_datos()
     <?php
     if (!(isset($_REQUEST['partial']))) {
        get_header();
-
+    }
     //get_header();
     echo '<div class="wrap">';
 
@@ -237,7 +237,6 @@ function TYDN_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($rows);
             if (is_array($rows)) {/* Creamos un listado como una tabla HTML */
                 print '<div><table><th>';
                 foreach ( array_keys($rows[0])as $key) {
@@ -306,6 +305,28 @@ function TYDN_my_datos()
                 wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
                  
 
+            break;
+            
+            case "listarJSON":
+                $a=array();
+                    if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
+                    else {$campo="clienteMail";
+                        $query = "SELECT     * FROM  $table      WHERE $campo =?";
+                        $a=array( $user_email);
+         
+                    }
+                    $consult = $MP_pdo->prepare($query);
+                    $a=$consult->execute($a);
+                    $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
+                if (!(isset($_REQUEST['partial']))) {
+                    echo json_encode($rows);
+                }
+                else{
+                    header('Content-type: application/json');
+                    echo json_encode($rows);
+                }
+                
+                
             break;
 
         default:
