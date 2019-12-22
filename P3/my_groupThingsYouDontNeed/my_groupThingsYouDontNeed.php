@@ -29,6 +29,7 @@ include(plugin_dir_path( __FILE__ ).'include/functions.php');
 
 register_activation_hook( __FILE__, 'TYDN_Ejecutar_crearT');
 
+
 //add_action( 'plugins_loaded', 'Ejecutar_crearT' ); // esto se ejecuta siempre que se llama al plugin
 function TYDN_Ejecutar_crearT(){
     TYDN_CrearT("A_GrupoCliente000");
@@ -43,6 +44,14 @@ function alertRegistro(){
     $deps = array();
     wp_enqueue_script( 'alertRegistro' ,"/wp-content/plugins/my_groupThingsYouDontNeed/js/registro.js",$deps, true, true );
 }
+
+add_action( 'wp_enqueue_scripts', 'loadStyle' );
+function loadStyle(){
+    wp_register_style('style-css','/wp-content/plugins/my_groupThingsYouDontNeed/css/style.css');
+    wp_enqueue_style('style-css');
+}
+
+
 
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
 //add_action('wp_head', 'hook_css');
