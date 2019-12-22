@@ -1,0 +1,47 @@
+.fom_usuario {
+    width:100%;
+    height:100%;
+    margin-top: 90px !important;
+}
+.labelTYDN{
+    color: #F08080 !important;
+    
+}
+.legendTYDN{
+    color: #F08080 !important;
+    text-decoration: underline overline wavy white;
+    font-size: 20px;
+    padding-bottom:10px;
+}
+
+.inputTYDN{
+    border: none !important;
+    border-bottom: 2px solid #FFCCFF !important;
+    color: white !important;
+    background:none !important;
+}
+
+.inputTYDN:focus {
+    background-color: RGBA(255, 204, 255,0.5) !important;
+}
+
+.paracetamol{
+    border-radius: 12px !important;
+    background-color: #FFCCFF !important;
+    padding: 0.5em 1.5em !important;
+
+}
+.ibuprofeno{
+    border-radius: 12px !important;
+    background-color: #FFCCFF !important;
+    color:black !important;
+
+}
+
+.Kawaii{
+    background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
+    height: 200px !important;
+    text-align: center !important;
+    color: black !important;
+    padding-top:50px !important;
+}

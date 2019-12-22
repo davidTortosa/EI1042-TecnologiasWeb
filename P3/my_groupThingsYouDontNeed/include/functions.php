@@ -10,11 +10,9 @@
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 3
  * */
-?>
-    <head>
-    <script type="text/javascript" src="/wp-content/plugins/my_groupThingsYouDontNeed/include/registro.js" charset="utf-8" async="" defer=""></script>
-    </head>
-<?php
+
+ 
+
 //header('Content-type: application/json');
 //Estas 2 instrucciones me aseguran que el usuario accede a través del WP. Y no directamente
 if ( ! defined( 'WPINC' ) ) exit;
@@ -30,136 +28,11 @@ function TYDN_CrearT($tabla){
     $consult->execute (array());
 }
 
-function TYDN_Register_Form($MP_user , $user_email)
-{//formulario registro amigos de $user_email
-    ?>
-
-    <h1 class="Kawaii">Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
-        <label for="clienteMail" class="labelTYDN">Tu correo</label>
-        <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $user_email?>"
-        readonly />
-        <br/>
-        <legend class="legendTYDN">Datos básicos</legend>
-        <label class="labelTYDN" for="nombre">Nombre</label>
-        <br/>
-        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
-        placeholder="Miguel Cervantes" />
-        <br/>
-        <label class="labelTYDN" for="email">Email</label>
-        <br/>
-        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $MP_user["email"] ?>"
-        placeholder="kiko@ic.es" />
-        <br/>
-        <br/>
-        <!-- CAMPO FOTO -->
-        <img id="img_foto" src="" width="100" height="100">
-        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $MP_user["foto"] ?>"
-        placeholder="Lucas" />
-        <br/>
-        <br/>
-        <input type="submit" class="paracetamol" value="Enviar">
-        <input type="reset" class="ibuprofeno" value="Deshacer">
-    </form>
-
-    
-    <script type="text/javascript"  defer charset="utf-8">
-
-    function mostrarFoto(file, imagen) {
-
-        var extensions = ['JPG','JPEG'];
-        var ex = file.name.split(".");
-        if(extensions.includes(ex[1].toUpperCase())){
-
-            //carga la imagen de file en el elemento src imagen
-            var reader = new FileReader();
-            reader.addEventListener("load", function () {
-                imagen.src = reader.result;
-            });
-
-            reader.readAsDataURL(file);
-        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
-            document.querySelector("#foto").value="";
-        }
-            
-    }
-
-    function ready() {
-        var fichero = document.querySelector("#foto");
-        var imagen  = document.querySelector("#img_foto");
-    //escuchamos evento selección nuevo fichero.
-        fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen);
-        });
-    }
-
-    ready();
-</script>
-<?php
-}
 
 //CONTROLADOR
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
 //https://host/wp-admin/admin-post.php?action=my_datos&proceso=r 
-function hook_css() {
-    ?>
-        <style>
-            .fom_usuario {
-                width:100%;
-                height:100%;
-                margin-top: 90px !important;
-            }
-            .labelTYDN{
-                color: #F08080 !important;
-                
-            }
-            .legendTYDN{
-                color: #F08080 !important;
-                text-decoration: underline overline wavy white;
-                font-size: 20px;
-                padding-bottom:10px;
-            }
-            
-            .inputTYDN{
-                border: none !important;
-                border-bottom: 2px solid #FFCCFF !important;
-                color: white !important;
-                background:none !important;
-            }
-            
-            .inputTYDN:focus {
-                background-color: RGBA(255, 204, 255,0.5) !important;
-            }
-            
-            .paracetamol{
-                border-radius: 12px !important;
-                background-color: #FFCCFF !important;
-                padding: 0.5em 1.5em !important;
-
-            }
-            .ibuprofeno{
-                border-radius: 12px !important;
-                background-color: #FFCCFF !important;
-                color:black !important;
-
-            }
-
-            .Kawaii{
-                background-image: url(https://data.whicdn.com/images/298275521/superthumb.png?t=1506741451) !important;
-                height: 200px !important;
-                text-align: center !important;
-                color: black !important;
-                padding-top:50px !important;
-            }
-
-            
-
-           
-        </style>
-    <?php
- }
  
 function TYDN_my_datos()
 { 
@@ -195,7 +68,7 @@ function TYDN_my_datos()
     switch ($_REQUEST['proceso']) {
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
-            TYDN_Register_Form($MP_user,$user_email);
+            include_once(plugin_dir_path(__FILE__) . '../templates/registro.php');
             break;
 
         case "registrar":
@@ -274,7 +147,7 @@ function TYDN_my_datos()
             break;
 
             case "modificar":
-                TYDN_modify_user();
+                include_once(plugin_dir_path(__FILE__) . '../templates/update.php');
             break;
 
             case "modificar_usuario":
@@ -355,121 +228,7 @@ function TYDN_my_datos()
     //get_footer();
 }
 
-function TYDN_modify_user(){
-    global $table, $valor;
-    
-    $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
 
-    $campo = 'person_id';
-    $valor=0;
-    if ((isset($_REQUEST['id']))){
-
-        $valor = $_REQUEST['id'];
-    }
-    else{
-        wp_redirect(admin_url( 'admin-post.php?action=my_datosTYDN&proceso=listar'));
-    }
-
-    $query = "SELECT * FROM $table WHERE $campo =?";
-    $a=array($valor);
-    
-    $consult = $MP_pdo->prepare($query);
-    $a=$consult->execute($a);
-    $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-    $dir='/wp-content/fotillos/'.$rows[0]['foto_file'];
-?>
-
-    <h1 class="Kawaii">Modificar usuario </h1>
-    <form class="fom_usuario" action="?action=my_datosTYDN&proceso=modificar_usuario&person_id=<?php echo $valor;?>" method="POST" enctype="multipart/form-data">
-        <label for="clienteMail" class="labelTYDN">Tu correo</label>
-        <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" class="inputTYDN" value="<?php print $rows[0]['clienteMail']?>"
-        readonly />
-        <br/>
-        <legend class="legendTYDN">Datos básicos</legend>
-        <label class="labelTYDN" for="nombre">Nombre</label>
-        <br/>
-        <input type="text" name="userName" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['nombre'] ?>"
-        placeholder="Miguel Cervantes" />
-        <br/>
-        <label class="labelTYDN" for="email">Email</label>
-        <br/>
-        <input type="text" name="email" class="item_requerid inputTYDN" size="20"  maxlength="25" value="<?php print $rows[0]['email'] ?>"
-        placeholder="kiko@ic.es" />
-        <br/>
-        <br/>
-        <!-- CAMPO FOTO -->
-        <img id="img_foto" src="" width="100" height="100">
-        <input type="file" name="foto" id="foto" class="item_requerid inputTYDN" size="20" maxlength="25" value="<?php print $rows[0]['foto_file'] ?>"
-        placeholder="Lucas" />
-        <br/>
-        <br/>
-        <input type="submit" class="paracetamol" value="Actualizar">
-        <input type="reset" class="ibuprofeno" value="Deshacer">
-    </form>
-    <script type="text/javascript"  defer charset="utf-8">
-        var image = '<?php echo $dir; ?>';
-        document.getElementById('img_foto').src = image ;
-    </script>
-
-    <script type="text/javascript"  defer charset="utf-8">
-
-    function mostrarFoto(file, imagen) {
-
-        var extensions = ['JPG','JPEG'];
-        var ex = file.name.split(".");
-        if(extensions.includes(ex[1].toUpperCase())){
-
-            //carga la imagen de file en el elemento src imagen
-            var reader = new FileReader();
-            reader.addEventListener("load", function () {
-                
-                
-                
-                var image = new Image();
-                image.src = reader.result;
-          
-            //Validate the File Height and Width.
-            image.onload = function () {
-              var height = this.height;
-              var width = this.width;
-              if (height > 1500 || width > 1500) {
-                alert("Maximo 1500x1500 px.");
-                document.getElementById("foto").value = "";
-                return false;
-              }
-              imagen.src = reader.result;
-              return true;
-            };
-                
-                
-                
-                
-                
-                
-                
-            });
-
-            reader.readAsDataURL(file);
-        }else { window.alert("Tiene que ser un archivo JPG o JPEG salu2 "); 
-            document.querySelector("#foto").value="";
-        }
-            
-    }
-
-    function ready() {
-        var fichero = document.querySelector("#foto");
-        var imagen  = document.querySelector("#img_foto");
-    //escuchamos evento selección nuevo fichero.
-        fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen);
-        });
-    }
-
-    ready();
-</script>
-    <?php
-}
 //add_action('admin_post_nopriv_my_datos', 'my_datos');
 //add_action('admin_post_my_datos', 'my_datos'); //no autentificados
 ?>
