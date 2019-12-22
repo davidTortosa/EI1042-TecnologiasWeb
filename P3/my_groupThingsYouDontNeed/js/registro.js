@@ -24,8 +24,10 @@ evento.target.reset ();
 
 if(window.confirm("Usuario añadido con éxito. ¿Seguir añadiendo amigos?")){
    window.open("https://thingsyoudontneed.000webhostapp.com/wp-admin/admin-post.php?action=my_datosTYDN&proceso=registro","");
+   console.log("si");
 }else{
    window.open("https://thingsyoudontneed.000webhostapp.com/wp-admin/admin-post.php?action=my_datosTYDN&proceso=listar","uwu");
+   console.log("no");
 }
 //window.alert("Usuario añadido con éxito. ¿Seguir añadiendo amigos?");
    } catch (error) {
