@@ -39,9 +39,15 @@ function mostrarfoto(){
     wp_enqueue_script( 'mostrarFoto' ,"/wp-content/plugins/my_groupThingsYouDontNeed/js/mostrarFoto.js",$deps, true, true );
 }
 
+function alertRegistro(){
+    $deps = array();
+    wp_enqueue_script( 'alertRegistro' ,"/wp-content/plugins/my_groupThingsYouDontNeed/js/registro.js",$deps, true, true );
+}
+
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
 //add_action('wp_head', 'hook_css');
 add_action('admin_post_my_datosTYDN', "TYDN_my_datos"); 
 add_action("wp_enqueue_scripts","mostrarfoto");
+add_action("wp_enqueue_scripts","alertRegistro");
 
 ?>

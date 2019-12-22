@@ -1,6 +1,4 @@
 
-<script type="text/javascript" src="/wp-content/plugins/my_groupThingsYouDontNeed/include/js/registro.js" charset="utf-8" async="" defer=""></script>
-
 <h1 class="Kawaii">Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosTYDN&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail" class="labelTYDN">Tu correo</label>
